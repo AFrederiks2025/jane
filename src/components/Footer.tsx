@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
+import { CookieSettingsLink } from "./CookieSettingsLink";
 import { getContent } from "@/content";
-import { path, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 
 export function Footer({ locale }: { locale: Locale }) {
   const t = getContent(locale);
@@ -79,9 +79,12 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-white/70">
           <p>{f.credit}</p>
-          <Link href={f.legalHref} className="hover:text-jane-mint">
-            {f.legal}
-          </Link>
+          <div className="flex items-center gap-5">
+            <CookieSettingsLink locale={locale} />
+            <Link href={f.legalHref} className="hover:text-jane-mint">
+              {f.legal}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
