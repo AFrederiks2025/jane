@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Avatar } from "./Avatar";
 import type { ExperienceCategory, ExperienceItem } from "@/content/types";
 
@@ -9,6 +10,7 @@ interface ExperienceGridProps {
   labels: { all: string; participants: string; professionals: string };
   filterLabel?: string;
   readMore: string;
+  basePath: string;
 }
 
 type Filter = "all" | ExperienceCategory;
@@ -18,6 +20,7 @@ export function ExperienceGrid({
   labels,
   filterLabel,
   readMore,
+  basePath,
 }: ExperienceGridProps) {
   const [filter, setFilter] = useState<Filter>("all");
 
@@ -58,9 +61,10 @@ export function ExperienceGrid({
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((item) => (
-          <article
+          <Link
             key={item.slug}
-            className="group bg-white rounded-3xl p-7 border border-jane-navy/5 hover:border-jane-mint/60 hover:shadow-lg transition-all"
+            href={`${basePath}/${item.slug}`}
+            className="group block bg-white rounded-3xl p-7 border border-jane-navy/5 hover:border-jane-mint/60 hover:shadow-lg transition-all"
           >
             <div className="flex items-center gap-4">
               <Avatar name={item.name} size={64} />
@@ -78,13 +82,10 @@ export function ExperienceGrid({
             <p className="mt-5 text-jane-navy/75 text-[15px] leading-relaxed">
               {item.excerpt}
             </p>
-            <a
-              href={`#${item.slug}`}
-              className="mt-5 inline-flex items-center text-jane-mint text-sm uppercase tracking-wider group-hover:text-jane-orange transition-colors"
-            >
+            <span className="mt-5 inline-flex items-center text-jane-mint text-sm uppercase tracking-wider group-hover:text-jane-orange transition-colors">
               {readMore}
-            </a>
-          </article>
+            </span>
+          </Link>
         ))}
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Blob, DotArc } from "@/components/Blob";
 import { ExperienceGrid } from "@/components/ExperienceGrid";
 import { CTABanner } from "@/components/CTABanner";
 import { getContent } from "@/content";
-import type { Locale } from "@/lib/i18n";
+import { path, type Locale } from "@/lib/i18n";
 
 export function ExperiencesPage({ locale }: { locale: Locale }) {
   const t = getContent(locale);
@@ -32,6 +32,7 @@ export function ExperiencesPage({ locale }: { locale: Locale }) {
             items={t.experiencesData}
             labels={e.filters}
             readMore={t.common.readMore}
+            basePath={path(locale, "experiences")}
           />
         </div>
       </section>

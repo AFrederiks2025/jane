@@ -3,8 +3,10 @@ export type ExperienceCategory = "participants" | "professionals";
 export interface ExperienceItem {
   slug: string;
   name: string;
+  role?: string;
   category: ExperienceCategory;
   excerpt: string;
+  story?: string[];
 }
 
 export interface CoachItem {

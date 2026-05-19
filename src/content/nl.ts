@@ -224,72 +224,123 @@ export const nl: SiteContent = {
     {
       slug: "volke-hoekstra",
       name: "Volke Hoekstra",
+      role: "Jane® gecertificeerd coach",
       category: "professionals",
       excerpt:
         "Jane® gecertificeerd coach. Coachingstrajecten voor medewerkers, starters, outplacement en re-integratie.",
+      story: [
+        "Als gecertificeerd coach werk ik met Jane® omdat ik in mijn praktijk merk dat mensen pas écht in beweging komen wanneer ze hun eigen talenten zien en begrijpen. De Jane® Talenten Methodiek geeft dat inzicht op een diep niveau.",
+        "Ik zet de methodiek in voor heel verschillende vragen — van medewerkers die vastlopen, starters die richting zoeken, tot mensen in outplacement of re-integratie. Het mooie is: het vertrekpunt is steeds hetzelfde, namelijk wie iemand is, niet wat iemand doet.",
+        "Dat geeft rust, richting en vertrouwen. Voor mij is dat precies waarom dit werk zo waardevol is.",
+      ],
     },
     {
       slug: "siebe-slagter",
       name: "Siebe Slagter",
+      role: "Adviseur en coach",
       category: "professionals",
       excerpt:
         "Werkt vanuit zijn adviespraktijk aan selectie, inzet en ontwikkeling — met focus op corporate identity.",
+      story: [
+        "Vanuit mijn adviespraktijk werk ik aan vraagstukken rond selectie, inzet en ontwikkeling. De rode draad in mijn werk: corporate identity. Hoe kom je tot de identiteit van een team, een afdeling of organisatie — en hoe maak je die identiteit productief?",
+        "Jane® helpt mij om die identiteit niet te benaderen vanuit functies of rollen, maar vanuit talent. Dat opent gesprekken die er anders niet komen.",
+      ],
     },
     {
       slug: "sebastiaan-kuijt",
       name: "Sebastiaan Kuijt",
+      role: "CDD Analist, Rabobank",
       category: "participants",
       excerpt:
         "CDD Analist bij de Rabobank. Vertelt hoe Jane® zijn talenten zichtbaar maakte en hem in beweging zette.",
+      story: [
+        "Voor het Jane® traject had ik weleens woorden voor wat ik goed kan, maar ik kon niet uitleggen waaróm. Het assessment en het validatiegesprek gaven me daar voor het eerst grip op.",
+        "Wat ik vooral heb meegenomen: ik weet nu wat me energie geeft en wat me uitput, en kan dat ook uitleggen aan mijn omgeving. Dat heeft me geholpen om bewuster keuzes te maken in mijn werk bij de Rabobank.",
+      ],
     },
     {
       slug: "saskia-roelofsen",
       name: "Saskia Roelofsen",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "“Waarom ik het liefst met Jane® werk? Omdat Jane® een helder en precies inzicht geeft in het hart van iemands identiteit.”",
+      story: [
+        "Waarom ik het liefst met de Jane® werk? Omdat Jane® een helder en precies inzicht geeft in het hart van iemands identiteit. Niet zomaar een type of een profiel, maar een levend beeld van wie iemand echt is.",
+        "In mijn coachpraktijk is dat het vertrekpunt voor groei. Zonder dat fundament blijft begeleiding vaak hangen aan de oppervlakte.",
+      ],
     },
     {
       slug: "richard-calandt",
       name: "Richard Calandt",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "Jane brengt voor hem als coach de diepere betekenis van talent in kaart — het beste vertrekpunt voor een intensief coachtraject.",
+      story: [
+        "Jane brengt voor mij als coach de diepere betekenis van talent in kaart. Voor een intensief coachtraject is dat wat mij betreft het beste vertrekpunt dat er is.",
+        "Het mooie is dat de methodiek zowel structuur biedt als ruimte laat voor het persoonlijke verhaal achter de gegevens.",
+      ],
     },
     {
       slug: "rob-zigter-podcast",
       name: "Podcast met Rob Zigter",
+      role: "Gesprek over persoonlijk leiderschap",
       category: "professionals",
       excerpt:
         "Een gesprek over persoonlijk leiderschap: weten waar je ‘ja’ en ‘nee’ tegen zegt en verantwoordelijkheid nemen.",
+      story: [
+        "In deze podcast praten we met Rob Zigter over persoonlijk leiderschap. Hoe weet je waar je ‘ja’ en ‘nee’ tegen zegt? Hoe neem je verantwoordelijkheid voor je eigen koers — in werk én privé?",
+        "Een gesprek dat raakt aan de kern van waar het bij Jane® om draait: handelen vanuit wie je werkelijk bent.",
+      ],
     },
     {
       slug: "andrea-cramer-kieboom",
       name: "Andrea Cramer Kieboom",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "Coach met een hart voor talent — zet Jane® in om mensen tot bloei te brengen.",
+      story: [
+        "Ik geloof dat ieder mens een unieke set talenten heeft. Mijn werk als coach is mensen helpen die talenten te zien, te benoemen en in te zetten.",
+        "Jane® geeft me daarvoor het scherpste instrument dat ik ken — en daarmee kan ik mensen écht tot bloei brengen.",
+      ],
     },
     {
       slug: "marieke-van-de-vegt",
       name: "Marieke van de Vegt",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "Helpt mensen om hun unieke waarde te (h)erkennen en concreet in te zetten in werk en privé.",
+      story: [
+        "Mensen weten vaak van zichzelf wat ze ‘goed kunnen’, maar veel minder vaak waaróm ze juist daarin verschil maken. Met Jane® help ik mensen om die unieke waarde te (h)erkennen.",
+        "En vooral: om er concreet iets mee te doen — in werk én privé.",
+      ],
     },
     {
       slug: "marten-schippers",
       name: "Marten Schippers",
+      role: "Deelnemer",
       category: "participants",
       excerpt:
         "Deelnemer aan een Jane® traject. Vertelt hoe hij zijn talenten leerde benoemen en omzetten in keuzes.",
+      story: [
+        "Ik had het idee dat ik mezelf wel kende. Tijdens het Jane® traject ontdekte ik dat ik wel woorden had voor wat ik dacht, maar niet voor wie ik bén.",
+        "Dat verschil heeft me geholpen om duidelijker keuzes te maken — keuzes waar ik nu nog steeds bij sta.",
+      ],
     },
     {
       slug: "petra-van-gans",
       name: "Petra van Gans",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "Gecertificeerd coach. Werkt vanuit haar praktijk aan persoonlijke groei en teamontwikkeling.",
+      story: [
+        "In mijn praktijk werk ik aan persoonlijke groei én aan teamontwikkeling. Jane® werkt voor beide — en dat is best bijzonder.",
+        "Bij teams zie ik vaak dat het groepsdiagram gesprekken op gang brengt die er voorheen niet kwamen. Dat is precies wat een team verder helpt.",
+      ],
     },
   ],
   coachesData: [

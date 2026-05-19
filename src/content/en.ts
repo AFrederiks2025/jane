@@ -222,69 +222,120 @@ export const en: SiteContent = {
     {
       slug: "volke-hoekstra",
       name: "Volke Hoekstra",
+      role: "Jane® certified coach",
       category: "professionals",
       excerpt:
         "Jane® certified coach. Coaching for employees, starters, outplacement and reintegration.",
+      story: [
+        "As a certified coach I work with Jane® because in my practice I see that people only really start moving when they see and understand their own talents. The Jane® Talent Methodology offers that insight at a deep level.",
+        "I use the methodology for very different questions — from employees who get stuck, to starters looking for direction, to people in outplacement or reintegration. The starting point is always the same: who someone is, not what they do.",
+        "That brings calm, direction and confidence. That’s exactly why this work is so valuable.",
+      ],
     },
     {
       slug: "siebe-slagter",
       name: "Siebe Slagter",
+      role: "Consultant and coach",
       category: "professionals",
       excerpt:
         "Works from his consulting practice on selection, deployment and development — with a focus on corporate identity.",
+      story: [
+        "From my consulting practice I work on questions around selection, deployment and development. The common thread: corporate identity. How do you arrive at the identity of a team, department or organisation — and how do you make that identity productive?",
+        "Jane® helps me to approach that identity not from roles or job descriptions, but from talent. That opens conversations that would otherwise not happen.",
+      ],
     },
     {
       slug: "sebastiaan-kuijt",
       name: "Sebastiaan Kuijt",
+      role: "CDD Analyst, Rabobank",
       category: "participants",
       excerpt: "CDD Analyst at Rabobank. Shares how Jane® made his talents visible and got him moving.",
+      story: [
+        "Before the Jane® journey I had words for the things I was good at — but I couldn’t explain why. The assessment and validation conversation finally gave me a grip on that.",
+        "What I took away above all: I now know what gives me energy and what drains me, and I can explain it to those around me. That helped me make more conscious choices in my work at Rabobank.",
+      ],
     },
     {
       slug: "saskia-roelofsen",
       name: "Saskia Roelofsen",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "“Why do I prefer to work with Jane®? Because Jane® gives sharp, precise insight into the heart of a person’s identity.”",
+      story: [
+        "Why do I prefer to work with Jane®? Because Jane® gives sharp, precise insight into the heart of a person’s identity. Not just a type or a profile, but a living picture of who someone truly is.",
+        "In my coaching practice, that is the starting point for growth. Without that foundation, guidance often stays on the surface.",
+      ],
     },
     {
       slug: "richard-calandt",
       name: "Richard Calandt",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "As a coach, Jane reveals the deeper meaning of talent for him — the best starting point for an intensive coaching journey.",
+      story: [
+        "As a coach, Jane reveals the deeper meaning of talent for me. For an intensive coaching journey, that’s the best starting point I know.",
+        "What I love is that the methodology offers both structure and room for the personal story behind the data.",
+      ],
     },
     {
       slug: "rob-zigter-podcast",
       name: "Podcast with Rob Zigter",
+      role: "Conversation on personal leadership",
       category: "professionals",
       excerpt:
         "A conversation about personal leadership: knowing when to say ‘yes’ and ‘no’, and taking responsibility.",
+      story: [
+        "In this podcast we talk with Rob Zigter about personal leadership. How do you know when to say ‘yes’ and ‘no’? How do you take responsibility for your own course — at work and at home?",
+        "A conversation that gets right to the heart of what Jane® is about: acting from who you really are.",
+      ],
     },
     {
       slug: "andrea-cramer-kieboom",
       name: "Andrea Cramer Kieboom",
+      role: "Coach",
       category: "professionals",
       excerpt: "A coach with a heart for talent — uses Jane® to help people flourish.",
+      story: [
+        "I believe every person has a unique set of talents. My work as a coach is to help people see, name and apply those talents.",
+        "Jane® gives me the sharpest instrument I know for that — and with it, I can help people truly flourish.",
+      ],
     },
     {
       slug: "marieke-van-de-vegt",
       name: "Marieke van de Vegt",
+      role: "Coach",
       category: "professionals",
       excerpt:
         "Helps people recognise their unique value and apply it concretely in work and life.",
+      story: [
+        "People often know what they are ‘good at’, but far less often why they make a difference exactly there. With Jane® I help people to recognise that unique value.",
+        "And above all: to do something concrete with it — at work and at home.",
+      ],
     },
     {
       slug: "marten-schippers",
       name: "Marten Schippers",
+      role: "Participant",
       category: "participants",
       excerpt:
         "Participant in a Jane® journey. Shares how he learned to name his talents and turn them into choices.",
+      story: [
+        "I thought I knew myself pretty well. During the Jane® journey I discovered that I had words for what I thought, but not for who I am.",
+        "That difference has helped me make clearer choices — choices I still stand by today.",
+      ],
     },
     {
       slug: "petra-van-gans",
       name: "Petra van Gans",
+      role: "Coach",
       category: "professionals",
       excerpt: "Certified coach. Works from her practice on personal growth and team development.",
+      story: [
+        "In my practice I work on personal growth and team development. Jane® works for both — and that’s quite special.",
+        "With teams, I often see that the group diagram starts conversations that didn’t happen before. That’s exactly what a team needs to move forward.",
+      ],
     },
   ],
   coachesData: [
