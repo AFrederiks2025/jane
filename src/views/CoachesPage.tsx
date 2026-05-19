@@ -1,6 +1,5 @@
 import { CoachCard } from "@/components/CoachCard";
-import { CoachClusters } from "@/components/CoachClusters";
-import { CoachMatcher } from "@/components/CoachMatcher";
+import { CoachesExplorer } from "@/components/CoachesExplorer";
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -31,9 +30,7 @@ export function CoachesPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <CoachMatcher locale={locale} />
-
-      <CoachClusters locale={locale} />
+      <CoachesExplorer locale={locale} />
 
       <section id="coaches" className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">

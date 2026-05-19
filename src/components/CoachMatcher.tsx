@@ -4,10 +4,12 @@ import { useState } from "react";
 import { PillButton } from "./PillButton";
 import type { Locale } from "@/lib/i18n";
 
+export type ClusterId = "bestemming" | "rol" | "team";
+
 interface Option {
   label: string;
   detail?: string;
-  cluster: "bestemming" | "rol" | "team";
+  cluster: ClusterId;
 }
 
 interface Step {
@@ -22,16 +24,8 @@ function copyFor(locale: Locale) {
         {
           question: "Voor wie zoek je begeleiding?",
           options: [
-            {
-              label: "Voor mezelf",
-              detail: "Persoonlijk traject",
-              cluster: "bestemming",
-            },
-            {
-              label: "Voor mijn team",
-              detail: "Eendaags of meerdaags",
-              cluster: "team",
-            },
+            { label: "Voor mezelf", detail: "Persoonlijk traject", cluster: "bestemming" },
+            { label: "Voor mijn team", detail: "Eendaags of meerdaags", cluster: "team" },
             {
               label: "Voor mijn organisatie",
               detail: "HR / cultuur / selectie",
@@ -42,22 +36,10 @@ function copyFor(locale: Locale) {
         {
           question: "Wat past het meest bij jouw vraag?",
           options: [
-            {
-              label: "Ik zoek richting in mijn leven of loopbaan",
-              cluster: "bestemming",
-            },
-            {
-              label: "Ik herken een patroon dat me tegenhoudt",
-              cluster: "bestemming",
-            },
-            {
-              label: "Ik wil beter functioneren in mijn rol",
-              cluster: "rol",
-            },
-            {
-              label: "Mijn relatie, gezin of geloofsleven",
-              cluster: "rol",
-            },
+            { label: "Ik zoek richting in mijn leven of loopbaan", cluster: "bestemming" },
+            { label: "Ik herken een patroon dat me tegenhoudt", cluster: "bestemming" },
+            { label: "Ik wil beter functioneren in mijn rol", cluster: "rol" },
+            { label: "Mijn relatie, gezin of geloofsleven", cluster: "rol" },
           ],
         },
       ]
@@ -99,49 +81,46 @@ function copyFor(locale: Locale) {
     restart: isNL ? "Opnieuw beginnen" : "Start over",
     results: {
       bestemming: {
-        title: isNL
-          ? "Persoonlijke bestemming & functie"
-          : "Personal calling & function",
+        title: isNL ? "Persoonlijke bestemming & functie" : "Personal calling & function",
         body: isNL
           ? "Een bestemmings-, blinde-vlek- of gavencoach past het best — het hart van Jane®."
           : "A calling, blind-spot or gifts coach fits best — the heart of Jane®.",
-        href: "#cluster-bestemming",
       },
       rol: {
         title: isNL ? "Per rol of levensfase" : "By role or life stage",
         body: isNL
           ? "Een doelgroep-specifieke coach past je context: loopbaan, leiderschap, relatie of voorganger."
           : "An audience-specific coach fits your context: career, leadership, relationship or pastor.",
-        href: "#cluster-rol",
       },
       team: {
-        title: isNL
-          ? "Teams & organisaties"
-          : "Teams & organisations",
+        title: isNL ? "Teams & organisaties" : "Teams & organisations",
         body: isNL
           ? "Een team- of organisatiecoach — Team Life Statement, cultuurtraject of workshop."
           : "A team or organisation coach — Team Life Statement, culture journey or workshop.",
-        href: "#cluster-team",
       },
     },
   };
 }
 
-export function CoachMatcher({ locale }: { locale: Locale }) {
+interface CoachMatcherProps {
+  locale: Locale;
+  onSelectCluster: (cluster: ClusterId) => void;
+}
+
+export function CoachMatcher({ locale, onSelectCluster }: CoachMatcherProps) {
   const t = copyFor(locale);
   const [answers, setAnswers] = useState<Option[]>([]);
   const step = answers.length;
   const showResult =
     step >= t.steps.length || (answers[0]?.cluster === "team" && step >= 1);
 
-  const result = (() => {
+  const winner: ClusterId | null = (() => {
     if (!showResult) return null;
-    const winner: "bestemming" | "rol" | "team" =
-      answers[0]?.cluster === "team"
-        ? "team"
-        : (answers[1]?.cluster ?? answers[0]?.cluster ?? "bestemming");
-    return t.results[winner];
+    return answers[0]?.cluster === "team"
+      ? "team"
+      : (answers[1]?.cluster ?? answers[0]?.cluster ?? "bestemming");
   })();
+  const result = winner ? t.results[winner] : null;
 
   const pick = (opt: Option) => setAnswers((prev) => [...prev, opt]);
   const reset = () => setAnswers([]);
@@ -176,9 +155,7 @@ export function CoachMatcher({ locale }: { locale: Locale }) {
                     onClick={() => pick(opt)}
                     className="text-left rounded-2xl border border-jane-navy/10 px-5 py-4 hover:border-jane-mint hover:bg-jane-mint/5 transition-colors"
                   >
-                    <span className="block text-jane-navy text-[15px]">
-                      {opt.label}
-                    </span>
+                    <span className="block text-jane-navy text-[15px]">{opt.label}</span>
                     {opt.detail && (
                       <span className="block text-jane-navy/60 text-sm mt-0.5">
                         {opt.detail}
@@ -190,7 +167,7 @@ export function CoachMatcher({ locale }: { locale: Locale }) {
             </>
           )}
 
-          {showResult && result && (
+          {showResult && result && winner && (
             <div>
               <p className="text-jane-mint text-xs uppercase tracking-widest mb-3">
                 {t.resultEyebrow}
@@ -198,11 +175,9 @@ export function CoachMatcher({ locale }: { locale: Locale }) {
               <h3 className="text-2xl md:text-3xl font-light text-jane-navy leading-tight">
                 {result.title}
               </h3>
-              <p className="mt-4 text-jane-navy/80 font-light leading-relaxed">
-                {result.body}
-              </p>
+              <p className="mt-4 text-jane-navy/80 font-light leading-relaxed">{result.body}</p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <PillButton variant="mint" href={result.href}>
+                <PillButton variant="mint" onClick={() => onSelectCluster(winner)}>
                   {t.resultCta}
                 </PillButton>
                 <button
