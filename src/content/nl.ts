@@ -114,11 +114,13 @@ export const nl: SiteContent = {
       {
         name: "Jamila de Jong-van der Schaaf",
         role: "Trotse eigenaar",
+        photo: "/photos/about/jamila.jpg",
         bio: "Ik geloof dat mensen uniek zijn gemaakt door God en een persoonlijke bestemming (purpose) hebben hier op de aarde. Het blijft me verbazen hoe weinig mensen, vandaag de dag, in staat zijn om hun natuurlijke talenten te benoemen, laat staan beseffen welke waarde deze heeft voor anderen en hun omgeving. Ook organisaties, teams en afdelingen laten vaak nog veel potentieel onbenut en laten hiermee (financieel) resultaat liggen. Ik neem daar geen genoegen mee! Samen met anderen zet ik me in om mensen een uniek inzicht te bieden, zodat ze effectief en succesvol zijn en meer van zichzelf genieten!",
       },
       {
         name: "Dirk van der Schaaf",
         role: "Grondlegger Jane (1950–2017)",
+        photo: "/photos/about/dirk.jpg",
         bio: "Gefascineerd door het in kaart brengen van persoonlijkheid, geloofde Dirk in een God die de mens geschapen heeft om van waarde te zijn voor de ander. Als assessment psycholoog (NIP) miste hij een effectief instrument voor de match tussen mens, functie en organisatie. Hij ontwikkelde een eigen evaluatiemethodiek, wetenschappelijk onderbouwd, en noemde deze ‘Jane’ naar zijn vrouw — die hem had geleerd dat “het niet gaat om wat je doet, maar om wie je bent”.",
       },
     ],
@@ -362,6 +364,7 @@ export const nl: SiteContent = {
       location: "Rotterdam",
       specialties: ["Talentcoaching", "Teamontwikkeling", "Loopbaanbegeleiding"],
       bio: "Jamila is eigenaar van Jane® en gecertificeerd coach. Ze begeleidt individuen en teams in het ontdekken en inzetten van hun unieke talenten — met oog voor de persoon én het resultaat.",
+      photo: "/photos/about/jamila.jpg",
       email: "jamila@jane.nl",
       acceptingClients: true,
     },
