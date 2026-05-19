@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { AccountMenu } from "./AccountMenu";
+import { ThemeToggle } from "./ThemeToggle";
 import { path, type Locale, type RouteKey } from "@/lib/i18n";
 import { getContent } from "@/content";
 
@@ -46,6 +47,7 @@ export function Header({ locale }: HeaderProps) {
             {t.common.nav.contact}
           </Link>
           <AccountMenu locale={locale} />
+          <ThemeToggle locale={locale} />
           <Link
             href={`/${otherLocale}`}
             className="ml-1 text-jane-mint text-[15px] uppercase tracking-wider hover:text-jane-navy transition-colors"
@@ -55,25 +57,28 @@ export function Header({ locale }: HeaderProps) {
           </Link>
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-          aria-expanded={open}
-          className="lg:hidden p-2 -mr-2 text-jane-navy"
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            ) : (
-              <>
-                <path d="M3 7h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                <path d="M3 12h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                <path d="M3 17h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
-        </button>
+        <div className="lg:hidden flex items-center gap-1">
+          <ThemeToggle locale={locale} />
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            aria-expanded={open}
+            className="p-2 -mr-2 text-jane-navy"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              {open ? (
+                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              ) : (
+                <>
+                  <path d="M3 7h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M3 12h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M3 17h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {open && (

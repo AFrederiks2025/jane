@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Brand colors from briefing */
   --color-jane-navy: #212c56;
@@ -56,4 +58,68 @@ h6 {
   outline: 2px solid #04a98b;
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* ---------- Dark mode ---------- */
+/* Strategy: re-target the most-used Tailwind utilities under a `.dark`
+   scope so we don't have to thread `dark:` modifiers through every view.
+   Brand colors (jane-mint, jane-orange, jane-navy as a background on
+   footer/CTAs) stay; surfaces and text colors flip. */
+
+.dark {
+  --jane-dark-page: #0c1330;
+  --jane-dark-surface: #141b3a;
+  --jane-dark-card: #1c2451;
+  --jane-dark-text: #ecead8;
+}
+
+.dark body {
+  background: var(--jane-dark-page);
+  color: var(--jane-dark-text);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--jane-dark-text);
+}
+
+/* Surfaces */
+.dark .bg-white { background-color: var(--jane-dark-card); }
+.dark .bg-white\/90 { background-color: rgba(28, 36, 81, 0.92); }
+.dark .bg-white\/80 { background-color: rgba(28, 36, 81, 0.82); }
+.dark .bg-white\/70 { background-color: rgba(28, 36, 81, 0.72); }
+.dark .bg-jane-cream { background-color: var(--jane-dark-surface); }
+
+/* Body text colors (text-jane-navy and its opacity variants) */
+.dark .text-jane-navy { color: var(--jane-dark-text); }
+.dark .text-jane-navy\/85 { color: rgba(236, 234, 216, 0.85); }
+.dark .text-jane-navy\/80 { color: rgba(236, 234, 216, 0.80); }
+.dark .text-jane-navy\/75 { color: rgba(236, 234, 216, 0.75); }
+.dark .text-jane-navy\/70 { color: rgba(236, 234, 216, 0.70); }
+.dark .text-jane-navy\/65 { color: rgba(236, 234, 216, 0.65); }
+.dark .text-jane-navy\/60 { color: rgba(236, 234, 216, 0.60); }
+.dark .text-jane-navy\/55 { color: rgba(236, 234, 216, 0.55); }
+.dark .text-jane-navy\/50 { color: rgba(236, 234, 216, 0.55); }
+.dark .text-jane-navy\/40 { color: rgba(236, 234, 216, 0.50); }
+.dark .text-jane-navy\/30 { color: rgba(236, 234, 216, 0.45); }
+
+/* Hover state that re-asserts text-jane-navy on hover */
+.dark .hover\:text-jane-navy:hover { color: var(--jane-dark-text); }
+
+/* Borders */
+.dark .border-jane-navy\/5 { border-color: rgba(236, 234, 216, 0.08); }
+.dark .border-jane-navy\/10 { border-color: rgba(236, 234, 216, 0.12); }
+.dark .border-jane-navy\/15 { border-color: rgba(236, 234, 216, 0.16); }
+.dark .border-jane-navy\/20 { border-color: rgba(236, 234, 216, 0.20); }
+.dark .border-jane-navy\/25 { border-color: rgba(236, 234, 216, 0.24); }
+.dark .border-jane-navy\/30 { border-color: rgba(236, 234, 216, 0.28); }
+
+/* Selection */
+.dark ::selection {
+  background: #04a98b;
+  color: #0c1330;
 }

@@ -45,13 +45,7 @@ export default async function HomePage({
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(135deg, #fdf6f0 0%, #fff7ee 45%, #ffffff 100%)",
-            }}
-          />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#fdf6f0_0%,#fff7ee_45%,#ffffff_100%)] dark:bg-[linear-gradient(135deg,#0c1330_0%,#141b3a_45%,#0c1330_100%)]" />
           <Blob
             color="mint-soft"
             opacity={0.45}

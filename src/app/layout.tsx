@@ -39,6 +39,13 @@ export default async function RootLayout({
   const lang = isLocale(first) ? first : defaultLocale;
   return (
     <html lang={lang} className={`${josefin.variable} h-full antialiased`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('jane-theme');var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&m)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-jane-navy">
         {children}
       </body>
