@@ -16,6 +16,7 @@ export const en: SiteContent = {
       label: "Account",
       coachLogin: "Coach login",
       studentLogin: "Student login",
+      trainerLogin: "Trainer login",
       myAccount: "My account",
       noAccount: "No account yet?",
       register: "Get started",

@@ -16,6 +16,7 @@ export const nl: SiteContent = {
       label: "Account",
       coachLogin: "Inlog coach",
       studentLogin: "Inlog student",
+      trainerLogin: "Inlog opleider",
       myAccount: "Mijn gegevens",
       noAccount: "Nog geen account?",
       register: "Start hier",
