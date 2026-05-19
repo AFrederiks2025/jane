@@ -72,6 +72,16 @@ export function InstitutePage({ locale }: { locale: Locale }) {
               <li key={idx}>{line}</li>
             ))}
           </ul>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <PillButton variant="navy" href={`/${locale}/inloggen/student`}>
+              {locale === "nl" ? "Inlog student" : "Student login"}
+            </PillButton>
+            <p className="text-jane-navy/65 text-sm max-w-md">
+              {locale === "nl"
+                ? "Volg je een traject? Log in op het student portaal voor je modules en het archief."
+                : "Following a journey? Log in to the student portal for your modules and the archive."}
+            </p>
+          </div>
         </div>
       </section>
 
