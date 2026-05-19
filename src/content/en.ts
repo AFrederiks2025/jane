@@ -12,6 +12,14 @@ export const en: SiteContent = {
       institute: "Jane institute",
       contact: "Contact",
     },
+    account: {
+      label: "Account",
+      coachLogin: "Coach login",
+      studentLogin: "Student login",
+      myAccount: "My account",
+      noAccount: "No account yet?",
+      register: "Get started",
+    },
     cta: {
       header: "YES, I’M IN",
       forMe: "Discover this for myself!",
