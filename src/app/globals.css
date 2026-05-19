@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors from briefing */
+  --color-jane-navy: #212c56;
+  --color-jane-navy-soft: #2b3868;
+  --color-jane-mint: #04a98b;
+  --color-jane-mint-soft: #b8e8de;
+  --color-jane-orange: #d65d1f;
+  --color-jane-orange-soft: rgba(214, 93, 31, 0.4);
+  --color-jane-orange-softer: rgba(214, 93, 31, 0.71);
+  --color-jane-cream: #fdf6f0;
+  --color-jane-gray: #212529;
+
+  --color-background: #ffffff;
+  --color-foreground: #212c56;
+
+  --font-sans: var(--font-josefin), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #212c56;
+  font-family: var(--font-josefin), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-josefin), ui-sans-serif, system-ui, sans-serif;
+  color: #212c56;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #04a98b;
+  color: white;
+}
