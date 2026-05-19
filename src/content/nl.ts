@@ -158,17 +158,17 @@ export const nl: SiteContent = {
         {
           name: "Jane® Talenten Rapportage",
           description: "Volledig inzicht in jouw natuurlijke talenten, talentcombinaties en groeiremmers.",
-          href: "#",
+          href: "/downloads/reports/jane-talenten-rapportage-nl.pdf",
         },
         {
           name: "Jane® Functie Rapportage",
           description: "Maakt de match tussen mens, functie en organisatie concreet en bespreekbaar.",
-          href: "#",
+          href: "/downloads/reports/jane-functie-rapportage-nl.pdf",
         },
         {
           name: "Jane® Jong Talenten Rapportage",
           description: "Speciaal voor jongeren — geeft richting bij studie- en loopbaankeuzes.",
-          href: "#",
+          href: "/downloads/reports/jane-jong-talenten-rapportage-nl.pdf",
         },
       ],
     },

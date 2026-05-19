@@ -158,17 +158,17 @@ export const en: SiteContent = {
         {
           name: "Jane® Talent Report",
           description: "Full insight into your natural talents, talent combinations and growth inhibitors.",
-          href: "#",
+          href: "/downloads/reports/jane-talenten-rapportage-nl.pdf",
         },
         {
           name: "Jane® Role Report",
           description: "Makes the match between person, role and organisation concrete and actionable.",
-          href: "#",
+          href: "/downloads/reports/jane-functie-rapportage-nl.pdf",
         },
         {
           name: "Jane® Young Talent Report",
           description: "Specifically for young people — provides direction for study and career choices.",
-          href: "#",
+          href: "/downloads/reports/jane-jong-talenten-rapportage-nl.pdf",
         },
       ],
     },
