@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
@@ -76,11 +77,20 @@ export default async function HomePage({
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] max-w-sm mx-auto">
               <div className="absolute inset-0 rounded-[42%_58%_55%_45%/45%_45%_55%_55%] overflow-hidden shadow-xl">
+                <Image
+                  src="/photos/about/jamila.jpg"
+                  alt={isNL ? "Jamila — Jane® coach" : "Jamila — Jane® coach"}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 384px, (min-width: 640px) 384px, 80vw"
+                  className="object-cover"
+                />
                 <div
-                  className="w-full h-full"
+                  aria-hidden="true"
+                  className="absolute inset-0 mix-blend-soft-light"
                   style={{
                     background:
-                      "linear-gradient(160deg, #b8e8de 0%, #04a98b 60%, #212c56 100%)",
+                      "linear-gradient(160deg, rgba(184,232,222,0.35) 0%, rgba(4,169,139,0.15) 60%, rgba(33,44,86,0.25) 100%)",
                   }}
                 />
               </div>

@@ -6,7 +6,11 @@ export function middleware(req: NextRequest) {
   const hasLocale = locales.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
   );
-  if (hasLocale) return NextResponse.next();
+  if (hasLocale) {
+    const res = NextResponse.next();
+    res.headers.set("x-pathname", pathname);
+    return res;
+  }
 
   // Map old EN home path from briefing
   if (pathname === "/home-en" || pathname === "/en/home-en") {

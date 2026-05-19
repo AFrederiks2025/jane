@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Josefin_Sans } from "next/font/google";
+import { defaultLocale, isLocale } from "@/lib/i18n";
 import "./globals.css";
 
 const josefin = Josefin_Sans({
@@ -26,13 +28,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const h = await headers();
+  const pathname = h.get("x-pathname") ?? "";
+  const first = pathname.split("/").filter(Boolean)[0];
+  const lang = isLocale(first) ? first : defaultLocale;
   return (
-    <html lang="nl" className={`${josefin.variable} h-full antialiased`}>
+    <html lang={lang} className={`${josefin.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-jane-navy">
         {children}
       </body>
