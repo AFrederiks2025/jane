@@ -1,4 +1,4 @@
-import { Blob, DotArc } from "@/components/Blob";
+import { Blob } from "@/components/Blob";
 import { Avatar } from "@/components/Avatar";
 import { CTABanner } from "@/components/CTABanner";
 import { getContent } from "@/content";
@@ -9,10 +9,8 @@ export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-jane-cream">
-        <Blob color="orange" opacity={0.25} size={520} className="absolute -left-32 -top-20" />
-        <Blob color="mint-soft" opacity={0.8} size={420} className="absolute -right-24 bottom-0" rotate={20} />
-        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 text-center relative">
-          <DotArc color="#d65d1f" size={120} className="absolute left-1/2 -translate-x-1/2 -top-2 opacity-80" />
+        <Blob color="mint-soft" opacity={0.45} size={420} className="absolute -right-24 -top-12" />
+        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-20 text-center relative">
           <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-5">
             {locale === "nl" ? "Over ons" : "About us"}
           </p>

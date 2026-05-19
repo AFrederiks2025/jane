@@ -4,6 +4,7 @@ import { isLocale, routes, type Locale, type RouteKey } from "@/lib/i18n";
 import { getContent } from "@/content";
 import { AboutPage } from "@/views/AboutPage";
 import { MethodologyPage } from "@/views/MethodologyPage";
+import { CoachesPage } from "@/views/CoachesPage";
 import { ExperiencesPage } from "@/views/ExperiencesPage";
 import { InstitutePage } from "@/views/InstitutePage";
 
@@ -40,6 +41,14 @@ export async function generateMetadata({
       return { title: t.about.metaTitle, description: t.about.metaDescription };
     case "methodology":
       return { title: t.methodology.metaTitle, description: t.methodology.metaDescription };
+    case "coaches":
+      return {
+        title: locale === "nl" ? "Onze coaches" : "Our coaches",
+        description:
+          locale === "nl"
+            ? "Vind de Jane® gecertificeerde coach die bij jou past."
+            : "Find the Jane® certified coach who fits you.",
+      };
     case "experiences":
       return { title: t.experiences.metaTitle, description: t.experiences.metaDescription };
     case "institute":
@@ -63,6 +72,8 @@ export default async function DynamicPage({
       return <AboutPage locale={locale} />;
     case "methodology":
       return <MethodologyPage locale={locale} />;
+    case "coaches":
+      return <CoachesPage locale={locale} />;
     case "experiences":
       return <ExperiencesPage locale={locale} />;
     case "institute":

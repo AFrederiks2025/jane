@@ -1,4 +1,4 @@
-import { Blob, DotArc } from "@/components/Blob";
+import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTABanner } from "@/components/CTABanner";
@@ -10,19 +10,9 @@ export function MethodologyPage({ locale }: { locale: Locale }) {
   const m = t.methodology;
   return (
     <>
-      <section className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(135deg, #fdf6f0 0%, #ffffff 50%, #f4faf8 100%)",
-            }}
-          />
-          <Blob color="mint-soft" opacity={0.8} size={520} className="absolute -right-32 -top-20" />
-          <Blob color="orange" opacity={0.22} size={420} className="absolute -left-20 bottom-0" rotate={30} />
-        </div>
-        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 text-center">
+      <section className="relative isolate overflow-hidden bg-jane-cream">
+        <Blob color="mint-soft" opacity={0.5} size={420} className="absolute -right-24 -top-12" />
+        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-20 text-center relative">
           <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-5">
             {m.hero.eyebrow}
           </p>
@@ -44,17 +34,18 @@ export function MethodologyPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="py-20 bg-jane-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid gap-10 lg:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid gap-8 lg:grid-cols-2">
           {m.blocks.map((b, i) => (
             <article
               key={i}
-              className="relative bg-white rounded-3xl p-10 border border-jane-navy/5 overflow-hidden"
+              className="bg-white rounded-3xl p-10 border border-jane-navy/5"
             >
-              <DotArc
-                color={i === 0 ? "#04a98b" : "#d65d1f"}
-                size={100}
-                className="absolute right-4 top-4 opacity-80"
-              />
+              <div
+                className="w-12 h-12 rounded-full mb-5 grid place-items-center text-white"
+                style={{ background: i === 0 ? "#04a98b" : "#d65d1f" }}
+              >
+                {i + 1}
+              </div>
               <p className="text-jane-orange uppercase tracking-[0.2em] text-xs font-medium mb-3">
                 {b.eyebrow}
               </p>

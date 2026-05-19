@@ -10,8 +10,16 @@ export interface ExperienceItem {
 }
 
 export interface CoachItem {
+  slug: string;
   name: string;
   role: string;
+  location: string;
+  specialties: string[];
+  bio: string;
+  storySlug?: string;
+  email?: string;
+  linkedin?: string;
+  acceptingClients?: boolean;
 }
 
 export interface Person {
@@ -45,6 +53,7 @@ export interface SiteContent {
       home: string;
       about: string;
       methodology: string;
+      coaches: string;
       experiences: string;
       institute: string;
       contact: string;
