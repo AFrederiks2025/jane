@@ -38,6 +38,9 @@ export function Footer({ locale }: { locale: Locale }) {
                 {f.phone}
               </a>
             </li>
+            <li className="pt-2 whitespace-pre-line text-white/75 text-sm">
+              {f.address}
+            </li>
           </ul>
         </div>
 

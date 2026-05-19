@@ -36,9 +36,9 @@ const nl: PrivacyContent = {
     title: "1. Verwerkingsverantwoordelijke",
     paragraphs: [
       "Verantwoordelijk voor de verwerking van persoonsgegevens is:",
-      "Jane® — Jamila de Jong-van der Schaaf",
-      "Adres: [INVULLEN]",
-      "KvK-nummer: [INVULLEN]",
+      "VanderSchaaf Publications BV — handelend onder de namen Jane®, Jane Institute, Jane Publishing en VanderSchaaf Publications.",
+      "Adres: Koningin Julianastraat 33, 6668 AG Randwijk",
+      "KvK-nummer: 28082543",
       "E-mail: jamila@jane.nl",
       "Telefoon: 06 49749381",
     ],
@@ -124,7 +124,7 @@ const nl: PrivacyContent = {
     ],
   },
   disclaimer:
-    "Deze tekst is een uitgangspunt en moet voor publicatie worden gereviewd door een juridisch professional. De gemarkeerde [INVULLEN]-velden moeten worden aangevuld met de actuele bedrijfsgegevens.",
+    "Deze tekst is een uitgangspunt en wordt aanbevolen vóór publicatie te laten reviewen door een juridisch professional.",
 };
 
 const en: PrivacyContent = {
@@ -136,9 +136,9 @@ const en: PrivacyContent = {
     title: "1. Data controller",
     paragraphs: [
       "Responsible for processing personal data is:",
-      "Jane® — Jamila de Jong-van der Schaaf",
-      "Address: [FILL IN]",
-      "Chamber of Commerce: [FILL IN]",
+      "VanderSchaaf Publications BV — trading as Jane®, Jane Institute, Jane Publishing and VanderSchaaf Publications.",
+      "Address: Koningin Julianastraat 33, 6668 AG Randwijk, the Netherlands",
+      "Chamber of Commerce: 28082543",
       "Email: jamila@jane.nl",
       "Phone: +31 6 49749381",
     ],
@@ -222,7 +222,7 @@ const en: PrivacyContent = {
     ],
   },
   disclaimer:
-    "This text is a starting point and should be reviewed by a legal professional before publication. The marked [FILL IN] fields should be completed with the actual company details.",
+    "This text is a starting point and we recommend a legal professional reviews it before publication.",
 };
 
 export function getPrivacy(locale: Locale): PrivacyContent {
