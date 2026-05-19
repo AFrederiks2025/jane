@@ -11,6 +11,8 @@ interface AccountMenuProps {
   onNavigate?: () => void;
 }
 
+const COACH_APP_URL = "https://app.jane.nl/nl";
+
 export function AccountMenu({ locale, variant = "desktop", onNavigate }: AccountMenuProps) {
   const t = getContent(locale).common.account;
   const [open, setOpen] = useState(false);
@@ -59,23 +61,47 @@ export function AccountMenu({ locale, variant = "desktop", onNavigate }: Account
     onNavigate?.();
   };
 
+  const ExternalIcon = () => (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className="ml-1 inline-block opacity-60"
+    >
+      <path d="M7 17L17 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M9 7h8v8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+
   if (variant === "mobile") {
     return (
       <div className="border-t border-jane-navy/10 pt-3 mt-2 space-y-2">
         <p className="text-jane-orange text-xs uppercase tracking-widest">{t.label}</p>
-        <Link
-          href={`/${locale}/inloggen/coach`}
+        <a
+          href={COACH_APP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={handleNavigate}
           className="block text-jane-navy text-base font-light py-1"
         >
           {t.coachLogin}
-        </Link>
+          <ExternalIcon />
+        </a>
         <Link
           href={`/${locale}/inloggen/student`}
           onClick={handleNavigate}
           className="block text-jane-navy text-base font-light py-1"
         >
           {t.studentLogin}
+        </Link>
+        <Link
+          href={`/${locale}/inloggen/opleider`}
+          onClick={handleNavigate}
+          className="block text-jane-navy text-base font-light py-1"
+        >
+          {t.trainerLogin}
         </Link>
         <div className="h-px bg-jane-navy/10 my-2" />
         <Link
@@ -150,14 +176,17 @@ export function AccountMenu({ locale, variant = "desktop", onNavigate }: Account
         }`}
       >
         <div className="rounded-2xl bg-white border border-jane-navy/10 shadow-xl overflow-hidden">
-          <Link
-            href={`/${locale}/inloggen/coach`}
+          <a
+            href={COACH_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             role="menuitem"
             onClick={handleNavigate}
-            className="block px-5 py-3 text-jane-navy hover:bg-jane-cream hover:text-jane-orange transition-colors"
+            className="flex items-center justify-between px-5 py-3 text-jane-navy hover:bg-jane-cream hover:text-jane-orange transition-colors"
           >
-            {t.coachLogin}
-          </Link>
+            <span>{t.coachLogin}</span>
+            <ExternalIcon />
+          </a>
           <Link
             href={`/${locale}/inloggen/student`}
             role="menuitem"
@@ -165,6 +194,14 @@ export function AccountMenu({ locale, variant = "desktop", onNavigate }: Account
             className="block px-5 py-3 text-jane-navy hover:bg-jane-cream hover:text-jane-orange transition-colors"
           >
             {t.studentLogin}
+          </Link>
+          <Link
+            href={`/${locale}/inloggen/opleider`}
+            role="menuitem"
+            onClick={handleNavigate}
+            className="block px-5 py-3 text-jane-navy hover:bg-jane-cream hover:text-jane-orange transition-colors"
+          >
+            {t.trainerLogin}
           </Link>
           <div className="h-px bg-jane-navy/10" />
           <Link

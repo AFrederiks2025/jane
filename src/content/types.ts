@@ -53,6 +53,7 @@ export interface SiteContent {
       label: string;
       coachLogin: string;
       studentLogin: string;
+      trainerLogin: string;
       myAccount: string;
       noAccount: string;
       register: string;

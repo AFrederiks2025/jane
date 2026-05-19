@@ -66,65 +66,51 @@ export function ContactForm({ locale, toEmail }: ContactFormProps) {
     setTimeout(() => setSubmitting(false), 1500);
   };
 
+  const inputClass =
+    "w-full bg-white border border-white/30 rounded-full px-5 py-3 text-jane-navy placeholder:text-jane-navy/50 focus:border-jane-mint focus:outline-none transition-colors";
+
   return (
     <form onSubmit={onSubmit} className="grid gap-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <label className="block">
-          <span className="block text-jane-navy text-sm uppercase tracking-widest mb-2">
+          <span className="block text-white text-sm uppercase tracking-widest mb-2">
             {labels.name}
           </span>
-          <input
-            type="text"
-            name="name"
-            required
-            autoComplete="name"
-            className="w-full bg-white border border-jane-navy/20 rounded-full px-5 py-3 text-jane-navy focus:border-jane-mint focus:outline-none transition-colors"
-          />
+          <input type="text" name="name" required autoComplete="name" className={inputClass} />
         </label>
         <label className="block">
-          <span className="block text-jane-navy text-sm uppercase tracking-widest mb-2">
+          <span className="block text-white text-sm uppercase tracking-widest mb-2">
             {labels.email}
           </span>
-          <input
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            className="w-full bg-white border border-jane-navy/20 rounded-full px-5 py-3 text-jane-navy focus:border-jane-mint focus:outline-none transition-colors"
-          />
+          <input type="email" name="email" required autoComplete="email" className={inputClass} />
         </label>
       </div>
 
       <fieldset>
-        <legend className="text-jane-navy text-sm uppercase tracking-widest mb-3">
+        <legend className="text-white text-sm uppercase tracking-widest mb-3">
           {labels.intent}
         </legend>
         <div className="flex flex-wrap gap-2">
           {[labels.intentMe, labels.intentOthers, labels.intentInstitute].map((opt) => (
-            <label
-              key={opt}
-              className="cursor-pointer text-sm rounded-full border border-jane-navy/20 px-4 py-2 text-jane-navy/80 hover:border-jane-mint has-checked:bg-jane-mint has-checked:text-white has-checked:border-jane-mint transition-colors"
-            >
-              <input type="radio" name="intent" value={opt} className="sr-only" />
-              {opt}
+            <label key={opt} className="cursor-pointer">
+              <input type="radio" name="intent" value={opt} className="peer sr-only" />
+              <span className="block text-sm rounded-full border border-white/25 px-4 py-2 text-white/85 hover:border-jane-mint hover:text-white peer-checked:bg-jane-mint peer-checked:text-white peer-checked:border-jane-mint transition-colors">
+                {opt}
+              </span>
             </label>
           ))}
         </div>
       </fieldset>
 
       <label className="block">
-        <span className="block text-jane-navy text-sm uppercase tracking-widest mb-2">
+        <span className="block text-white text-sm uppercase tracking-widest mb-2">
           {labels.subject}
         </span>
-        <input
-          type="text"
-          name="subject"
-          className="w-full bg-white border border-jane-navy/20 rounded-full px-5 py-3 text-jane-navy focus:border-jane-mint focus:outline-none transition-colors"
-        />
+        <input type="text" name="subject" className={inputClass} />
       </label>
 
       <label className="block">
-        <span className="block text-jane-navy text-sm uppercase tracking-widest mb-2">
+        <span className="block text-white text-sm uppercase tracking-widest mb-2">
           {labels.message}
         </span>
         <textarea
@@ -132,15 +118,15 @@ export function ContactForm({ locale, toEmail }: ContactFormProps) {
           required
           rows={5}
           placeholder={labels.placeholderMsg}
-          className="w-full bg-white border border-jane-navy/20 rounded-3xl px-5 py-3 text-jane-navy focus:border-jane-mint focus:outline-none transition-colors resize-y"
+          className="w-full bg-white border border-white/30 rounded-3xl px-5 py-3 text-jane-navy placeholder:text-jane-navy/50 focus:border-jane-mint focus:outline-none transition-colors resize-y"
         />
       </label>
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <PillButton variant="mint">{submitting ? "…" : labels.send}</PillButton>
-        <p className="text-sm text-white/70">{labels.opensMail}</p>
+        <p className="text-sm text-white/80">{labels.opensMail}</p>
       </div>
-      <p className="text-xs text-white/60">{labels.hint}</p>
+      <p className="text-xs text-white/70">{labels.hint}</p>
     </form>
   );
 }
