@@ -78,6 +78,7 @@ export interface SiteContent {
       email: string;
       phone: string;
       phoneHref: string;
+      address: string;
       social: string;
       legal: string;
       legalHref: string;
