@@ -17,7 +17,13 @@ export const metadata: Metadata = {
   },
   description:
     "De Jane® Talenten Methodiek biedt een betrouwbare manier om tot de kern te komen van jouw unieke identiteit op basis van talent.",
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

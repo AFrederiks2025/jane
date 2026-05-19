@@ -11,7 +11,7 @@ interface AccountMenuProps {
   onNavigate?: () => void;
 }
 
-const COACH_APP_URL = "https://app.jane.nl/nl";
+const COACH_APP_URL = "https://app.jane.nl/nl/coach";
 
 export function AccountMenu({ locale, variant = "desktop", onNavigate }: AccountMenuProps) {
   const t = getContent(locale).common.account;
