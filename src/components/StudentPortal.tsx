@@ -5,6 +5,7 @@ import { Blob } from "./Blob";
 import { PillButton } from "./PillButton";
 import type { StudentModule } from "@/content/modules";
 import type { ArchiveVideo } from "@/content/archive";
+import { groupArchive } from "@/content/archive";
 import type { Locale } from "@/lib/i18n";
 
 interface StudentPortalProps {
@@ -470,6 +471,7 @@ function ArchiveView({
   archive: ArchiveVideo[];
   labels: Labels;
 }) {
+  const groups = groupArchive(archive);
   return (
     <div>
       <header className="mb-8">
@@ -477,47 +479,63 @@ function ArchiveView({
         <p className="mt-3 text-jane-navy/80 font-light max-w-2xl">{labels.archiveIntro}</p>
       </header>
 
-      <div className="space-y-8">
-        {archive.map((v) => (
-          <article
-            key={v.id}
-            className="bg-white border border-jane-navy/10 rounded-3xl overflow-hidden"
-          >
-            <div className="aspect-video w-full bg-black">
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
-                title={v.title}
-                loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
+      <div className="space-y-12">
+        {groups.map((g) => (
+          <section key={g.group || "ungrouped"}>
+            {g.group && (
+              <div className="flex items-baseline justify-between mb-4">
+                <h3 className="text-jane-orange uppercase tracking-[0.2em] text-xs font-medium">
+                  {g.group}
+                </h3>
+                <span className="text-jane-navy/50 text-xs tabular-nums">
+                  {g.videos.length} {g.videos.length === 1 ? "video" : "video's"}
+                </span>
+              </div>
+            )}
+            <div className="space-y-6">
+              {g.videos.map((v) => (
+                <article
+                  key={v.id}
+                  className="bg-white border border-jane-navy/10 rounded-3xl overflow-hidden"
+                >
+                  <div className="aspect-video w-full bg-black">
+                    <iframe
+                      className="w-full h-full"
+                      src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                      title={v.title}
+                      loading="lazy"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      referrerPolicy="strict-origin-when-cross-origin"
+                    />
+                  </div>
+                  <div className="p-6 md:p-7">
+                    <p className="text-jane-orange text-xs uppercase tracking-widest">{v.speaker}</p>
+                    <h4 className="mt-2 text-xl text-jane-navy font-normal leading-snug">{v.title}</h4>
+                    <p className="mt-3 text-jane-navy/75 leading-relaxed">{v.description}</p>
+                    <a
+                      href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center text-jane-mint hover:text-jane-orange text-xs uppercase tracking-widest"
+                    >
+                      {labels.watchOnYouTube}
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="ml-1.5">
+                        <path d="M7 17L17 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        <path
+                          d="M9 7h8v8"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
-            <div className="p-6 md:p-7">
-              <p className="text-jane-orange text-xs uppercase tracking-widest">{v.speaker}</p>
-              <h3 className="mt-2 text-xl text-jane-navy font-normal leading-snug">{v.title}</h3>
-              <p className="mt-3 text-jane-navy/75 leading-relaxed">{v.description}</p>
-              <a
-                href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center text-jane-mint hover:text-jane-orange text-xs uppercase tracking-widest"
-              >
-                {labels.watchOnYouTube}
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="ml-1.5">
-                  <path d="M7 17L17 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  <path
-                    d="M9 7h8v8"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-          </article>
+          </section>
         ))}
       </div>
     </div>
