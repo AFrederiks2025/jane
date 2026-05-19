@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { StudentPortal } from "@/components/StudentPortal";
 import { getModules } from "@/content/modules";
+import { getArchive } from "@/content/archive";
 import { isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -27,5 +28,6 @@ export default async function StudentPortalPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const modules = getModules(locale);
-  return <StudentPortal locale={locale} modules={modules} />;
+  const archive = getArchive(locale);
+  return <StudentPortal locale={locale} modules={modules} archive={archive} />;
 }
