@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { AccountMenu } from "./AccountMenu";
 import { path, type Locale, type RouteKey } from "@/lib/i18n";
 import { getContent } from "@/content";
 
@@ -27,7 +28,7 @@ export function Header({ locale }: HeaderProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <Logo locale={locale} />
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {items.map((it) => (
             <Link
               key={it.key}
@@ -43,9 +44,10 @@ export function Header({ locale }: HeaderProps) {
           >
             {t.common.nav.contact}
           </Link>
+          <AccountMenu locale={locale} />
           <Link
             href={`/${otherLocale}`}
-            className="ml-3 text-jane-mint text-[15px] uppercase tracking-wider hover:text-jane-navy transition-colors"
+            className="ml-1 text-jane-mint text-[15px] uppercase tracking-wider hover:text-jane-navy transition-colors"
             aria-label={`Switch to ${otherLocale === "en" ? "English" : "Nederlands"}`}
           >
             {otherLocale === "en" ? "EN" : "NL"}
@@ -92,10 +94,11 @@ export function Header({ locale }: HeaderProps) {
           >
             {t.common.nav.contact}
           </Link>
+          <AccountMenu locale={locale} variant="mobile" onNavigate={() => setOpen(false)} />
           <Link
             href={`/${otherLocale}`}
             onClick={() => setOpen(false)}
-            className="block text-jane-mint text-base uppercase tracking-wider py-1"
+            className="block text-jane-mint text-base uppercase tracking-wider py-1 pt-3 border-t border-jane-navy/10"
           >
             {otherLocale === "en" ? "English" : "Nederlands"}
           </Link>

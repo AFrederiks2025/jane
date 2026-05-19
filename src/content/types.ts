@@ -49,6 +49,14 @@ export interface SiteContent {
       institute: string;
       contact: string;
     };
+    account: {
+      label: string;
+      coachLogin: string;
+      studentLogin: string;
+      myAccount: string;
+      noAccount: string;
+      register: string;
+    };
     cta: {
       header: string;
       forMe: string;

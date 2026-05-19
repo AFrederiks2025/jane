@@ -12,6 +12,14 @@ export const nl: SiteContent = {
       institute: "Jane instituut",
       contact: "Contact",
     },
+    account: {
+      label: "Account",
+      coachLogin: "Inlog coach",
+      studentLogin: "Inlog student",
+      myAccount: "Mijn gegevens",
+      noAccount: "Nog geen account?",
+      register: "Start hier",
+    },
     cta: {
       header: "JA, IK WIL",
       forMe: "Dit voor mezelf ontdekken!",
