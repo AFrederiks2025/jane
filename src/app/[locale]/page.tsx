@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Avatar } from "@/components/Avatar";
 import { ExperienceGrid } from "@/components/ExperienceGrid";
 import { CTABanner } from "@/components/CTABanner";
+import { ContactSection } from "@/components/ContactSection";
 import { getContent } from "@/content";
 import { isLocale, path, type Locale } from "@/lib/i18n";
 
@@ -162,6 +163,7 @@ export default async function HomePage({
               labels={t.home.blogs.filters}
               filterLabel={t.home.blogs.filterLabel}
               readMore={t.common.readMore}
+              basePath={path(safeLocale, "experiences")}
             />
           </div>
           <div className="mt-12 text-center">
@@ -196,6 +198,7 @@ export default async function HomePage({
       </section>
 
       <CTABanner locale={safeLocale} />
+      <ContactSection locale={safeLocale} />
     </>
   );
 }

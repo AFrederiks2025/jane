@@ -8,10 +8,8 @@ export function Footer({ locale }: { locale: Locale }) {
   const f = t.common.footer;
   const otherLocale: Locale = locale === "nl" ? "en" : "nl";
   return (
-    <footer
-      id="contact"
-      className="relative mt-24 bg-jane-navy text-white/85 overflow-hidden"
-    >
+    <footer className="relative mt-24 bg-jane-navy text-white/85 overflow-hidden">
+
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 grid gap-12 md:grid-cols-3">
         <div>
           <div className="text-white">

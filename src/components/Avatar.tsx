@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function initialsFor(name: string): string {
   return name
     .replace(/[®©]/g, "")
@@ -24,11 +26,24 @@ function paletteFor(name: string) {
 
 interface AvatarProps {
   name: string;
+  src?: string;
   size?: number;
   className?: string;
 }
 
-export function Avatar({ name, size = 96, className = "" }: AvatarProps) {
+export function Avatar({ name, src, size = 96, className = "" }: AvatarProps) {
+  if (src) {
+    return (
+      <Image
+        src={src}
+        alt={name}
+        width={size}
+        height={size}
+        className={`rounded-full object-cover shadow-sm ${className}`}
+        style={{ width: size, height: size }}
+      />
+    );
+  }
   const { bg, fg } = paletteFor(name);
   const initials = initialsFor(name);
   return (
