@@ -114,11 +114,13 @@ export const en: SiteContent = {
       {
         name: "Jamila de Jong-van der Schaaf",
         role: "Proud owner",
+        photo: "/photos/about/jamila.jpg",
         bio: "I believe people are uniquely made by God and have a personal purpose here on earth. I’m still amazed at how few people today are able to name their natural talents, let alone realise their value to others and to the world around them. Organisations, teams and departments also leave much potential — and financial results — untapped. I refuse to accept that. Together with others, I’m committed to offering people unique insight, so they can be effective, successful, and enjoy more of themselves.",
       },
       {
         name: "Dirk van der Schaaf",
         role: "Founder of Jane (1950–2017)",
+        photo: "/photos/about/dirk.jpg",
         bio: "Fascinated by mapping personality, Dirk believed in a God who created people to be of value to one another. As an NIP-certified assessment psychologist, he missed an effective instrument for matching people, role and organisation. He developed his own scientifically grounded evaluation method and named it ‘Jane’ — after his wife, who had taught him that ‘it’s not about what you do, but about who you are’.",
       },
     ],
@@ -357,6 +359,7 @@ export const en: SiteContent = {
       location: "Rotterdam",
       specialties: ["Talent coaching", "Team development", "Career guidance"],
       bio: "Jamila is the owner of Jane® and a certified coach. She guides individuals and teams in discovering and applying their unique talents — with an eye for both the person and the result.",
+      photo: "/photos/about/jamila.jpg",
       email: "jamila@jane.nl",
       acceptingClients: true,
     },

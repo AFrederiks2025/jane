@@ -40,7 +40,7 @@ export function CoachDetailPage({ locale, slug }: { locale: Locale; slug: string
 
           <div className="mt-10 grid lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-4 flex flex-col items-center text-center lg:items-start lg:text-left">
-              <Avatar name={coach.name} size={180} />
+              <Avatar name={coach.name} src={coach.photo} size={180} />
               <h1 className="mt-6 text-3xl md:text-4xl font-light text-jane-navy leading-tight">
                 {coach.name}
               </h1>

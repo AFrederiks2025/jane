@@ -39,7 +39,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               className="grid lg:grid-cols-12 gap-10 items-start"
             >
               <div className="lg:col-span-4 flex flex-col items-center text-center">
-                <Avatar name={person.name} size={180} />
+                <Avatar name={person.name} src={person.photo} size={180} />
                 <h3 className="mt-5 text-xl text-jane-navy font-normal">{person.name}</h3>
                 <p className="text-jane-orange text-xs uppercase tracking-widest mt-1">
                   {person.role}

@@ -16,6 +16,7 @@ export interface CoachItem {
   location: string;
   specialties: string[];
   bio: string;
+  photo?: string;
   storySlug?: string;
   email?: string;
   linkedin?: string;
@@ -26,6 +27,7 @@ export interface Person {
   name: string;
   role: string;
   bio: string;
+  photo?: string;
 }
 
 export interface PortfolioItem {

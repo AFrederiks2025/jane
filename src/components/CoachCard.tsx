@@ -17,7 +17,7 @@ export function CoachCard({ coach, href, locale }: CoachCardProps) {
       className="group block bg-white border border-jane-navy/10 rounded-3xl p-6 hover:border-jane-mint/60 transition-colors"
     >
       <div className="flex items-start gap-4">
-        <Avatar name={coach.name} size={72} />
+        <Avatar name={coach.name} src={coach.photo} size={72} />
         <div className="flex-1 min-w-0">
           <h3 className="text-jane-navy text-lg font-normal leading-snug group-hover:text-jane-orange transition-colors">
             {coach.name}
