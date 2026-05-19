@@ -11,6 +11,7 @@ export const nl: SiteContent = {
       coaches: "Coaches",
       experiences: "Ervaringen",
       institute: "Jane instituut",
+      books: "Boeken",
       contact: "Contact",
     },
     account: {

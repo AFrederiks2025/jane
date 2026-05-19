@@ -7,6 +7,7 @@ import { MethodologyPage } from "@/views/MethodologyPage";
 import { CoachesPage } from "@/views/CoachesPage";
 import { ExperiencesPage } from "@/views/ExperiencesPage";
 import { InstitutePage } from "@/views/InstitutePage";
+import { BooksPage } from "@/views/BooksPage";
 
 function resolveRoute(locale: Locale, slug: string): RouteKey | null {
   for (const [key, value] of Object.entries(routes[locale])) {
@@ -53,6 +54,14 @@ export async function generateMetadata({
       return { title: t.experiences.metaTitle, description: t.experiences.metaDescription };
     case "institute":
       return { title: t.institute.metaTitle, description: t.institute.metaDescription };
+    case "books":
+      return {
+        title: locale === "nl" ? "Boeken" : "Books",
+        description:
+          locale === "nl"
+            ? "De Jane® methodiek in boekvorm — voor wie zelf aan de slag wil."
+            : "The Jane® methodology in book form — for those who want to do the work themselves.",
+      };
     default:
       return {};
   }
@@ -78,6 +87,8 @@ export default async function DynamicPage({
       return <ExperiencesPage locale={locale} />;
     case "institute":
       return <InstitutePage locale={locale} />;
+    case "books":
+      return <BooksPage locale={locale} />;
     default:
       notFound();
   }
