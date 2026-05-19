@@ -15,11 +15,11 @@ export function Header({ locale }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const t = getContent(locale);
   const items: { key: RouteKey; label: string }[] = [
-    { key: "home", label: t.common.nav.home },
-    { key: "about", label: t.common.nav.about },
     { key: "methodology", label: t.common.nav.methodology },
+    { key: "coaches", label: t.common.nav.coaches },
     { key: "experiences", label: t.common.nav.experiences },
     { key: "institute", label: t.common.nav.institute },
+    { key: "about", label: t.common.nav.about },
   ];
   const otherLocale: Locale = locale === "nl" ? "en" : "nl";
 

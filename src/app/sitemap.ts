@@ -23,6 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       });
     }
+    for (const coach of getContent(locale).coachesData) {
+      entries.push({
+        url: `${SITE}/${locale}/${routes[locale].coaches}/${coach.slug}`,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    }
   }
   return entries;
 }

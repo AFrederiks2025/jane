@@ -8,8 +8,7 @@ export function ContactSection({ locale }: { locale: Locale }) {
   const isNL = locale === "nl";
   return (
     <section id="contact" className="relative isolate overflow-hidden bg-jane-navy text-white">
-      <Blob color="orange" opacity={0.18} size={520} className="absolute -left-32 -top-24" />
-      <Blob color="mint" opacity={0.2} size={460} className="absolute -right-32 -bottom-24" rotate={45} />
+      <Blob color="mint" opacity={0.15} size={420} className="absolute -right-24 -bottom-12" rotate={45} />
       <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 relative">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">

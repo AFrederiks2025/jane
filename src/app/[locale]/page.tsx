@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Blob, DotArc } from "@/components/Blob";
+import Link from "next/link";
+import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Avatar } from "@/components/Avatar";
+import { CoachCard } from "@/components/CoachCard";
 import { ExperienceGrid } from "@/components/ExperienceGrid";
 import { CTABanner } from "@/components/CTABanner";
 import { ContactSection } from "@/components/ContactSection";
@@ -33,6 +34,10 @@ export default async function HomePage({
   if (!isLocale(locale)) notFound();
   const safeLocale: Locale = locale;
   const t = getContent(safeLocale);
+  const isNL = safeLocale === "nl";
+
+  const pathDecisionEyebrow = isNL ? "Voor wie ben je hier?" : "Who are you here for?";
+  const pathDecisionTitle = isNL ? "Kies jouw startpunt." : "Choose where you start.";
 
   return (
     <>
@@ -43,15 +48,19 @@ export default async function HomePage({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, #fdf6f0 0%, #fff7ee 40%, #ffffff 100%)",
+                "linear-gradient(135deg, #fdf6f0 0%, #fff7ee 45%, #ffffff 100%)",
             }}
           />
-          <Blob color="orange" opacity={0.35} size={620} className="absolute -left-40 -top-20" />
-          <Blob color="mint-soft" opacity={0.9} size={520} className="absolute -right-32 top-40" rotate={20} />
-          <DotArc color="#04a98b" size={160} className="absolute left-1/3 bottom-10 opacity-70" />
+          <Blob
+            color="mint-soft"
+            opacity={0.45}
+            size={520}
+            className="absolute -right-40 top-20"
+            rotate={20}
+          />
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-16 pb-24 lg:pt-24 lg:pb-32 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-20 lg:pt-28 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-5">
               {t.home.hero.eyebrow}
@@ -62,25 +71,11 @@ export default async function HomePage({
             <p className="mt-6 text-lg text-jane-navy/75 max-w-xl font-light">
               {t.home.hero.subtitle}
             </p>
-
-            <div className="mt-10">
-              <p className="text-jane-orange uppercase tracking-[0.22em] text-xs font-medium mb-4">
-                {t.common.cta.header}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <PillButton variant="orange" href={path(safeLocale, "methodology")}>
-                  {t.common.cta.forMe}
-                </PillButton>
-                <PillButton variant="mint" href={path(safeLocale, "institute")}>
-                  {t.common.cta.forOthers}
-                </PillButton>
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] max-w-sm mx-auto">
-              <div className="absolute inset-0 rounded-[40%_60%_60%_40%/45%_45%_55%_55%] overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 rounded-[42%_58%_55%_45%/45%_45%_55%_55%] overflow-hidden shadow-xl">
                 <div
                   className="w-full h-full"
                   style={{
@@ -89,18 +84,152 @@ export default async function HomePage({
                   }}
                 />
               </div>
-              <DotArc color="#d65d1f" size={120} className="absolute -left-8 -top-6 opacity-90" />
-              <Blob color="orange" opacity={0.9} size={130} className="absolute -right-6 -bottom-4" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* UNIEK */}
-      <section className="relative isolate py-24">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <Blob color="mint-soft" opacity={0.5} size={400} className="absolute -left-20 top-10" />
+      {/* TWEE PADEN */}
+      <section className="relative isolate py-16 lg:py-20 bg-white border-t border-jane-navy/5">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-3">
+              {pathDecisionEyebrow}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-jane-navy leading-tight">
+              {pathDecisionTitle}
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {/* Kandidaat / individu */}
+            <article className="relative overflow-hidden rounded-3xl bg-jane-cream p-8 md:p-10 flex flex-col">
+              <div className="flex items-center justify-between mb-6">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-jane-orange text-white">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.6" />
+                    <path
+                      d="M4 21a8 8 0 0 1 16 0"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                <span className="text-jane-orange text-xs uppercase tracking-widest">
+                  {isNL ? "Voor jou" : "For you"}
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-light text-jane-navy leading-tight">
+                {isNL ? "Ontdek je eigen talenten." : "Discover your own talents."}
+              </h3>
+              <p className="mt-4 text-jane-navy/80 font-light leading-relaxed">
+                {isNL
+                  ? "Een Jane® traject met een gecertificeerde coach. Inzicht in je natuurlijke talenten, je unieke waarde en je groeiremmers — vertaald naar concrete stappen."
+                  : "A Jane® journey with a certified coach. Insight into your natural talents, your unique value and your growth inhibitors — translated into concrete steps."}
+              </p>
+              <ul className="mt-6 space-y-2 text-jane-navy/80">
+                {(isNL
+                  ? [
+                      "Wetenschappelijk onderbouwd assessment",
+                      "Persoonlijk validatiegesprek",
+                      "Eigen Talenten Rapportage",
+                    ]
+                  : [
+                      "Scientifically grounded assessment",
+                      "Personal validation conversation",
+                      "Your own Talent Report",
+                    ]
+                ).map((line) => (
+                  <li key={line} className="flex items-start gap-3 text-[15px]">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 w-1.5 h-1.5 rounded-full bg-jane-orange shrink-0"
+                    />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto pt-8 flex flex-col sm:flex-row gap-3">
+                <PillButton variant="orange" href={path(safeLocale, "coaches")}>
+                  {isNL ? "Vind een coach" : "Find a coach"}
+                </PillButton>
+                <Link
+                  href={path(safeLocale, "methodology")}
+                  className="inline-flex items-center text-jane-navy/70 hover:text-jane-orange text-sm uppercase tracking-widest"
+                >
+                  {isNL ? "Eerst meer lezen »" : "Read more first »"}
+                </Link>
+              </div>
+            </article>
+
+            {/* Coach / professional */}
+            <article className="relative overflow-hidden rounded-3xl bg-jane-cream p-8 md:p-10 flex flex-col">
+              <div className="flex items-center justify-between mb-6">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-jane-mint text-white">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span className="text-jane-mint text-xs uppercase tracking-widest">
+                  {isNL ? "Voor coaches" : "For coaches"}
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-light text-jane-navy leading-tight">
+                {isNL
+                  ? "Werk zelf met de Jane® methodiek."
+                  : "Work with the Jane® methodology."}
+              </h3>
+              <p className="mt-4 text-jane-navy/80 font-light leading-relaxed">
+                {isNL
+                  ? "Word gecertificeerd in de Jane® Talenten Methodiek en zet hem in voor je eigen cliënten, teams of organisaties. Met persoonlijke begeleiding en jaarlijkse intervisie."
+                  : "Get certified in the Jane® Talent Methodology and apply it with your own clients, teams or organisations. With personal guidance and yearly intervision."}
+              </p>
+              <ul className="mt-6 space-y-2 text-jane-navy/80">
+                {(isNL
+                  ? [
+                      "Certificeringstraining in Rotterdam",
+                      "Toegang tot de online webapplicatie",
+                      "Jaarlijkse intervisie met collega-coaches",
+                    ]
+                  : [
+                      "Certification training in Rotterdam",
+                      "Access to the online web application",
+                      "Yearly intervision with peer coaches",
+                    ]
+                ).map((line) => (
+                  <li key={line} className="flex items-start gap-3 text-[15px]">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 w-1.5 h-1.5 rounded-full bg-jane-mint shrink-0"
+                    />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto pt-8 flex flex-col sm:flex-row gap-3">
+                <PillButton variant="mint" href={path(safeLocale, "institute")}>
+                  {isNL ? "Naar Jane® instituut" : "To Jane® institute"}
+                </PillButton>
+                <Link
+                  href={path(safeLocale, "coaches")}
+                  className="inline-flex items-center text-jane-navy/70 hover:text-jane-mint text-sm uppercase tracking-widest"
+                >
+                  {isNL ? "Onze coaches »" : "Our coaches »"}
+                </Link>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
+
+      {/* UNIEK */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <SectionHeading
@@ -118,27 +247,25 @@ export default async function HomePage({
       </section>
 
       {/* VALUE */}
-      <section className="relative isolate py-24 bg-jane-cream">
+      <section className="py-20 bg-jane-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
             eyebrow={t.home.value.eyebrow}
             title={t.home.value.title}
           />
-          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {t.home.value.items.map((it, i) => (
               <div
                 key={i}
-                className="bg-white rounded-3xl p-7 border border-jane-navy/5 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-3xl p-7 border border-jane-navy/5"
               >
                 <div
-                  className="w-12 h-12 rounded-full mb-5 grid place-items-center text-white font-light"
-                  style={{
-                    background: i % 2 === 0 ? "#04a98b" : "#d65d1f",
-                  }}
+                  className="w-11 h-11 rounded-full mb-5 grid place-items-center text-white font-light text-sm"
+                  style={{ background: i % 2 === 0 ? "#04a98b" : "#d65d1f" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-xl text-jane-navy font-normal leading-snug">
+                <h3 className="text-lg text-jane-navy font-normal leading-snug">
                   {it.title}
                 </h3>
                 <p className="mt-3 text-jane-navy/75 text-[15px] leading-relaxed">
@@ -150,14 +277,43 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* COACHES */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-3">
+                {t.home.coaches.eyebrow}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-light text-jane-navy leading-tight max-w-2xl">
+                {t.home.coaches.title}
+              </h2>
+            </div>
+            <PillButton variant="ghost" href={path(safeLocale, "coaches")}>
+              {t.home.coaches.cta}
+            </PillButton>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {t.coachesData.slice(0, 6).map((coach) => (
+              <CoachCard
+                key={coach.slug}
+                coach={coach}
+                href={`${path(safeLocale, "coaches")}/${coach.slug}`}
+                locale={safeLocale}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* EXPERIENCES */}
-      <section className="relative isolate py-24">
+      <section className="py-20 bg-jane-cream">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
             eyebrow={t.home.blogs.eyebrow}
             title={t.home.blogs.title}
           />
-          <div className="mt-14">
+          <div className="mt-12">
             <ExperienceGrid
               items={t.experiencesData.slice(0, 6)}
               labels={t.home.blogs.filters}
@@ -166,33 +322,10 @@ export default async function HomePage({
               basePath={path(safeLocale, "experiences")}
             />
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center">
             <PillButton variant="ghost" href={path(safeLocale, "experiences")}>
-              {safeLocale === "nl" ? "Alle ervaringen" : "All experiences"}
+              {isNL ? "Alle ervaringen" : "All experiences"}
             </PillButton>
-          </div>
-        </div>
-      </section>
-
-      {/* COACHES */}
-      <section className="relative isolate py-24 bg-jane-cream">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <SectionHeading
-            eyebrow={t.home.coaches.eyebrow}
-            title={t.home.coaches.title}
-          />
-          <div className="mt-14 grid gap-y-10 gap-x-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-            {t.coachesData.map((c) => (
-              <div key={c.name} className="flex flex-col items-center text-center">
-                <Avatar name={c.name} size={120} />
-                <h3 className="mt-4 text-jane-navy text-base font-normal leading-snug">
-                  {c.name}
-                </h3>
-                <p className="text-jane-orange text-xs uppercase tracking-widest mt-1">
-                  {c.role}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

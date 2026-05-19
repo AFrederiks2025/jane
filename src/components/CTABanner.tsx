@@ -6,10 +6,9 @@ import { path, type Locale } from "@/lib/i18n";
 export function CTABanner({ locale }: { locale: Locale }) {
   const t = getContent(locale);
   return (
-    <section className="relative isolate my-24">
+    <section className="relative isolate py-20 bg-jane-cream">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <Blob color="orange" opacity={0.18} size={520} className="absolute -left-32 -top-24" />
-        <Blob color="mint-soft" opacity={0.7} size={460} className="absolute -right-32 -bottom-24" rotate={45} />
+        <Blob color="mint-soft" opacity={0.4} size={420} className="absolute -right-24 -bottom-12" rotate={20} />
       </div>
       <div className="mx-auto max-w-4xl text-center px-6">
         <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-4">
