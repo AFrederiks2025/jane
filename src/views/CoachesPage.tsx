@@ -1,6 +1,9 @@
 import { CoachCard } from "@/components/CoachCard";
+import { CoachClusters } from "@/components/CoachClusters";
+import { CoachMatcher } from "@/components/CoachMatcher";
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
+import { SectionHeading } from "@/components/SectionHeading";
 import { getContent } from "@/content";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -28,9 +31,21 @@ export function CoachesPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="py-20">
+      <CoachMatcher locale={locale} />
+
+      <CoachClusters locale={locale} />
+
+      <section id="coaches" className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading
+            eyebrow={isNL ? "Onze coaches" : "Our coaches"}
+            title={
+              isNL
+                ? "Alle gecertificeerde Jane® coaches."
+                : "All certified Jane® coaches."
+            }
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {t.coachesData.map((coach) => (
               <CoachCard
                 key={coach.slug}
