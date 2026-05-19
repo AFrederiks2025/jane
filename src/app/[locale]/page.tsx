@@ -9,6 +9,7 @@ import { CoachCard } from "@/components/CoachCard";
 import { ExperienceGrid } from "@/components/ExperienceGrid";
 import { CTABanner } from "@/components/CTABanner";
 import { ContactSection } from "@/components/ContactSection";
+import { VideoEmbed } from "@/components/VideoEmbed";
 import { getContent } from "@/content";
 import { isLocale, path, type Locale } from "@/lib/i18n";
 
@@ -229,6 +230,24 @@ export default async function HomePage({
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* INTRO VIDEO */}
+      <section className="py-16 lg:py-20 bg-jane-cream">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-3">
+              {isNL ? "In het kort" : "In short"}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-jane-navy leading-tight">
+              {isNL ? "Jane® in twee minuten." : "Jane® in two minutes."}
+            </h2>
+          </div>
+          <VideoEmbed
+            youtubeId={isNL ? "KBs8VZQaFjQ" : "CFB5wu28nYA"}
+            title={isNL ? "Jane® in het kort" : "Jane® in short"}
+          />
         </div>
       </section>
 

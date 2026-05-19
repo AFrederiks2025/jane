@@ -3,6 +3,7 @@ import { PillButton } from "@/components/PillButton";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTABanner } from "@/components/CTABanner";
 import { ReportCover, type ReportCoverPalette } from "@/components/ReportCover";
+import { VideoEmbed } from "@/components/VideoEmbed";
 import { getContent } from "@/content";
 import type { Locale } from "@/lib/i18n";
 
@@ -28,7 +29,20 @@ export function MethodologyPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <VideoEmbed
+            youtubeId="kB7zerhZdjQ"
+            title={
+              locale === "nl"
+                ? "Uitleg Jane® Talenten Methodiek"
+                : "Jane® Talent Methodology explained"
+            }
+          />
+        </div>
+      </section>
+
+      <section className="pb-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-10 space-y-5 text-jane-navy/85 text-lg font-light leading-relaxed">
           {m.explainer.map((p, i) => (
             <p key={i}>{p}</p>
