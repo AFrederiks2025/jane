@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChatBubble } from "@/components/ChatBubble";
 import { CookieBanner } from "@/components/CookieBanner";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -19,6 +20,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const safeLocale: Locale = locale;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <>
@@ -27,6 +29,7 @@ export default async function LocaleLayout({
       <Footer locale={safeLocale} />
       <ChatBubble locale={safeLocale} />
       <CookieBanner locale={safeLocale} />
+      <GoogleAnalytics gaId={gaId} />
     </>
   );
 }
