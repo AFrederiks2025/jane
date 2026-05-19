@@ -58,6 +58,7 @@ export interface SiteContent {
       coaches: string;
       experiences: string;
       institute: string;
+      books: string;
       contact: string;
     };
     account: {

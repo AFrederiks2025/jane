@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, routes } from "@/lib/i18n";
 import { getContent } from "@/content";
+import { getBooks } from "@/content/books";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jane.nl";
 
@@ -26,6 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const coach of getContent(locale).coachesData) {
       entries.push({
         url: `${SITE}/${locale}/${routes[locale].coaches}/${coach.slug}`,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
+    }
+    for (const book of getBooks(locale)) {
+      entries.push({
+        url: `${SITE}/${locale}/${routes[locale].books}/${book.slug}`,
         changeFrequency: "monthly",
         priority: 0.7,
       });

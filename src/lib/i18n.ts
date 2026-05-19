@@ -15,6 +15,7 @@ export const routes = {
     coaches: "coaches",
     experiences: "ervaringen",
     institute: "jane-instituut",
+    books: "boeken",
     contact: "#contact",
   },
   en: {
@@ -24,6 +25,7 @@ export const routes = {
     coaches: "coaches",
     experiences: "experiences",
     institute: "jane-institute",
+    books: "books",
     contact: "#contact",
   },
 } as const;
