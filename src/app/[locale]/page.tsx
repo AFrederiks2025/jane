@@ -218,14 +218,14 @@ export default async function HomePage({
                 ))}
               </ul>
               <div className="mt-auto pt-8 flex flex-col sm:flex-row gap-3">
-                <PillButton variant="mint" href={path(safeLocale, "institute")}>
-                  {isNL ? "Naar Jane® instituut" : "To Jane® institute"}
+                <PillButton variant="mint" href={path(safeLocale, "training")}>
+                  {isNL ? "Word Certified JANE Coach" : "Become a Certified JANE Coach"}
                 </PillButton>
                 <Link
-                  href={path(safeLocale, "coaches")}
+                  href={path(safeLocale, "institute")}
                   className="inline-flex items-center text-jane-navy/70 hover:text-jane-mint text-sm uppercase tracking-widest"
                 >
-                  {isNL ? "Onze coaches »" : "Our coaches »"}
+                  {isNL ? "Jane® instituut »" : "Jane® institute »"}
                 </Link>
               </div>
             </article>

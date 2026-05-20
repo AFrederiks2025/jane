@@ -3,7 +3,7 @@ import { PillButton } from "@/components/PillButton";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTABanner } from "@/components/CTABanner";
 import { getContent } from "@/content";
-import type { Locale } from "@/lib/i18n";
+import { path, type Locale } from "@/lib/i18n";
 
 export function InstitutePage({ locale }: { locale: Locale }) {
   const t = getContent(locale);
@@ -22,6 +22,30 @@ export function InstitutePage({ locale }: { locale: Locale }) {
           <p className="mt-6 text-lg text-jane-navy/80 max-w-3xl mx-auto font-light">
             {i.hero.lead}
           </p>
+        </div>
+      </section>
+
+      {/* OPLEIDING CTA */}
+      <section className="py-12">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="bg-jane-navy text-white rounded-3xl px-7 py-8 md:px-10 md:py-9 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="text-jane-mint uppercase tracking-[0.2em] text-xs font-medium mb-2">
+                {locale === "nl" ? "12-maands vakopleiding" : "12-month professional training"}
+              </p>
+              <h2 className="text-2xl md:text-3xl font-light leading-tight">
+                {locale === "nl" ? "Word Certified JANE Coach" : "Become a Certified JANE Coach"}
+              </h2>
+              <p className="mt-2 text-white/80 font-light max-w-xl">
+                {locale === "nl"
+                  ? "Zes modules, een eigen JANE-traject, certificering en toegang tot het coachnetwerk."
+                  : "Six modules, your own JANE journey, certification and access to the coach network."}
+              </p>
+            </div>
+            <PillButton variant="mint" href={path(locale, "training")}>
+              {locale === "nl" ? "Bekijk de opleiding" : "View the training"}
+            </PillButton>
+          </div>
         </div>
       </section>
 

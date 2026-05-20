@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${SITE}/${locale}/${slug}`,
         changeFrequency: "monthly",
-        priority: 0.8,
+        priority: key === "training" ? 0.9 : 0.8,
       });
     }
     for (const item of getContent(locale).experiencesData) {

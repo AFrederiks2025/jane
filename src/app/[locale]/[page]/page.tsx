@@ -8,7 +8,9 @@ import { CoachesPage } from "@/views/CoachesPage";
 import { AudiencesPage } from "@/views/AudiencesPage";
 import { ExperiencesPage } from "@/views/ExperiencesPage";
 import { InstitutePage } from "@/views/InstitutePage";
+import { OpleidingPage } from "@/views/OpleidingPage";
 import { BooksPage } from "@/views/BooksPage";
+import { getOpleiding } from "@/content/opleiding";
 
 function resolveRoute(locale: Locale, slug: string): RouteKey | null {
   for (const [key, value] of Object.entries(routes[locale])) {
@@ -63,6 +65,10 @@ export async function generateMetadata({
       return { title: t.experiences.metaTitle, description: t.experiences.metaDescription };
     case "institute":
       return { title: t.institute.metaTitle, description: t.institute.metaDescription };
+    case "training": {
+      const o = getOpleiding(locale);
+      return { title: o.metaTitle, description: o.metaDescription };
+    }
     case "books":
       return {
         title: locale === "nl" ? "Boeken" : "Books",
@@ -98,6 +104,8 @@ export default async function DynamicPage({
       return <ExperiencesPage locale={locale} />;
     case "institute":
       return <InstitutePage locale={locale} />;
+    case "training":
+      return <OpleidingPage locale={locale} />;
     case "books":
       return <BooksPage locale={locale} />;
     default:
