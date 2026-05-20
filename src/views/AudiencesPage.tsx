@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
+import { CaseStudies } from "@/components/CaseStudies";
 import { audiencesByCluster } from "@/content/audiences";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -79,7 +80,11 @@ export function AudiencesPage({ locale }: { locale: Locale }) {
         </section>
       ))}
 
-      <section className="py-20 bg-jane-cream">
+      <div className="bg-jane-cream">
+        <CaseStudies locale={locale} />
+      </div>
+
+      <section className="py-20">
         <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
           <p className="text-jane-orange uppercase tracking-[0.22em] text-sm font-medium mb-4">
             {isNL ? "Niet zeker welke past?" : "Not sure which fits?"}

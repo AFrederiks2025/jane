@@ -68,8 +68,7 @@ const nl: BookItem[] = [
     ],
     testimonial: {
       quote: "Leer je gave kennen en ga erin functioneren.",
-      author:
-        "Jan Sjoerd Pasterkamp, voorganger in Rotterdam — over de Jane® talenten- en gaventest",
+      author: "Voorganger in Rotterdam — over de Jane® talenten- en gaventest",
     },
   },
 ];
@@ -96,8 +95,7 @@ const en: BookItem[] = [
     ],
     testimonial: {
       quote: "Learn to know your gift, and live in it.",
-      author:
-        "Jan Sjoerd Pasterkamp, pastor in Rotterdam — on the Jane® talents-and-gifts assessment",
+      author: "A pastor in Rotterdam — on the Jane® talents-and-gifts assessment",
     },
   },
 ];

@@ -230,6 +230,19 @@ export default async function HomePage({
               </div>
             </article>
           </div>
+
+          <p className="mt-10 text-center text-jane-navy/75 font-light">
+            {isNL
+              ? "Of bekijk wat Jane® doet voor jouw specifieke situatie — "
+              : "Or see what Jane® does for your specific situation — "}
+            <Link
+              href={path(safeLocale, "audiences")}
+              className="text-jane-mint hover:text-jane-orange underline underline-offset-4"
+            >
+              {isNL ? "alle 14 doelgroepen" : "all 14 audiences"}
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
