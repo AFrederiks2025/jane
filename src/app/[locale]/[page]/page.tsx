@@ -4,6 +4,7 @@ import { isLocale, routes, type Locale, type RouteKey } from "@/lib/i18n";
 import { getContent } from "@/content";
 import { AboutPage } from "@/views/AboutPage";
 import { MethodologyPage } from "@/views/MethodologyPage";
+import { TalentsPage } from "@/views/TalentsPage";
 import { CoachesPage } from "@/views/CoachesPage";
 import { AudiencesPage } from "@/views/AudiencesPage";
 import { ExperiencesPage } from "@/views/ExperiencesPage";
@@ -45,6 +46,14 @@ export async function generateMetadata({
       return { title: t.about.metaTitle, description: t.about.metaDescription };
     case "methodology":
       return { title: t.methodology.metaTitle, description: t.methodology.metaDescription };
+    case "talents":
+      return {
+        title: locale === "nl" ? "De 27 Jane® talenten" : "The 27 Jane® talents",
+        description:
+          locale === "nl"
+            ? "Alle 27 talenten uit het Jane® diagram, uitgelegd door Dirk van der Schaaf."
+            : "All 27 talents from the Jane® diagram, explained by Dirk van der Schaaf.",
+      };
     case "coaches":
       return {
         title: locale === "nl" ? "Onze coaches" : "Our coaches",
@@ -96,6 +105,8 @@ export default async function DynamicPage({
       return <AboutPage locale={locale} />;
     case "methodology":
       return <MethodologyPage locale={locale} />;
+    case "talents":
+      return <TalentsPage locale={locale} />;
     case "coaches":
       return <CoachesPage locale={locale} />;
     case "audiences":

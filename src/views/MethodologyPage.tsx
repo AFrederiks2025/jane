@@ -5,7 +5,7 @@ import { CTABanner } from "@/components/CTABanner";
 import { ReportCover, type ReportCoverPalette } from "@/components/ReportCover";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { getContent } from "@/content";
-import type { Locale } from "@/lib/i18n";
+import { path, type Locale } from "@/lib/i18n";
 
 const palettes: ReportCoverPalette[] = ["talenten", "functie", "jong"];
 
@@ -47,6 +47,11 @@ export function MethodologyPage({ locale }: { locale: Locale }) {
           {m.explainer.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+          <div className="pt-2">
+            <PillButton variant="ghost" href={path(locale, "talents")}>
+              {locale === "nl" ? "Bekijk alle 27 talenten" : "View all 27 talents"}
+            </PillButton>
+          </div>
         </div>
       </section>
 

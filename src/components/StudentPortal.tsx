@@ -6,6 +6,7 @@ import { PillButton } from "./PillButton";
 import type { StudentModule } from "@/content/modules";
 import type { ArchiveVideo } from "@/content/archive";
 import { groupArchive } from "@/content/archive";
+import { getTranscript } from "@/content/transcripts";
 import type { Locale } from "@/lib/i18n";
 
 interface StudentPortalProps {
@@ -197,7 +198,7 @@ export function StudentPortal({ locale, modules, archive }: StudentPortalProps) 
                 labels={labels}
               />
             )}
-            {view === "archive" && <ArchiveView archive={archive} labels={labels} />}
+            {view === "archive" && <ArchiveView archive={archive} labels={labels} locale={locale} />}
           </div>
         </div>
       </section>
@@ -467,10 +468,13 @@ function ModulesView({
 function ArchiveView({
   archive,
   labels,
+  locale,
 }: {
   archive: ArchiveVideo[];
   labels: Labels;
+  locale: Locale;
 }) {
+  const isNL = locale === "nl";
   const groups = groupArchive(archive);
   return (
     <div>
@@ -512,7 +516,46 @@ function ArchiveView({
                   <div className="p-6 md:p-7">
                     <p className="text-jane-orange text-xs uppercase tracking-widest">{v.speaker}</p>
                     <h4 className="mt-2 text-xl text-jane-navy font-normal leading-snug">{v.title}</h4>
+                    {v.talents && v.talents.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {v.talents.map((talent) => (
+                          <span
+                            key={talent}
+                            className="inline-flex items-center rounded-full bg-jane-cream text-jane-navy/80 text-xs px-2.5 py-1"
+                          >
+                            {talent}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <p className="mt-3 text-jane-navy/75 leading-relaxed">{v.description}</p>
+
+                    {(() => {
+                      const transcript = getTranscript(v.youtubeId);
+                      if (!transcript) return null;
+                      return (
+                        <details className="group mt-4 border-t border-jane-navy/10 pt-4">
+                          <summary className="flex items-center gap-2 cursor-pointer text-jane-navy text-sm font-medium list-none">
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              className="text-jane-mint transition-transform group-open:rotate-90"
+                            >
+                              <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            {isNL ? "Lees het transcript" : "Read the transcript"}
+                          </summary>
+                          <div className="mt-3 space-y-3 text-jane-navy/75 text-[15px] font-light leading-relaxed">
+                            {transcript.map((para, i) => (
+                              <p key={i}>{para}</p>
+                            ))}
+                          </div>
+                        </details>
+                      );
+                    })()}
+
                     <a
                       href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
                       target="_blank"

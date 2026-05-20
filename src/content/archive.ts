@@ -7,6 +7,7 @@ export interface ArchiveVideo {
   description: string;
   speaker: string;
   group?: string;
+  talents?: string[];
 }
 
 const TALENTEN_NL = "De talenten uitgelegd";
@@ -14,24 +15,35 @@ const TALENTEN_EN = "The talents explained";
 const LEZINGEN_NL = "Lezingen";
 const LEZINGEN_EN = "Lectures";
 
-const talentenVideoIds = [
-  "HxijseJ4734",
-  "-Wpc2pxAopc",
-  "Trknfhqip6M",
-  "C2Lb66TenXk",
-  "1FzXpb0ycpc",
-  "ksvZHr3KS9E",
+interface TalentVideo {
+  youtubeId: string;
+  talentsNl: string[];
+  talentsEn: string[];
+}
+
+const talentVideos: TalentVideo[] = [
+  { youtubeId: "HxijseJ4734", talentsNl: ["Analyse", "Formulering", "Investering"], talentsEn: ["Analysis", "Formulation", "Investment"] },
+  { youtubeId: "-Wpc2pxAopc", talentsNl: ["Onderscheiding", "Inleving", "Combinatie"], talentsEn: ["Discernment", "Empathy", "Combination"] },
+  { youtubeId: "Trknfhqip6M", talentsNl: ["Routine", "Argumentatie", "Uitleg"], talentsEn: ["Routine", "Argumentation", "Explanation"] },
+  { youtubeId: "C2Lb66TenXk", talentsNl: ["Helpen", "Signaleren", "Etaleren"], talentsEn: ["Helping", "Signalling", "Displaying"] },
+  { youtubeId: "1FzXpb0ycpc", talentsNl: ["Vertrouwen", "Contact", "Corrigeren"], talentsEn: ["Trust", "Contact", "Correction"] },
+  { youtubeId: "ksvZHr3KS9E", talentsNl: ["Doorbraak", "Beheersen", "Vertalen", "Route"], talentsEn: ["Breakthrough", "Control", "Translation", "Route"] },
 ];
 
+function joinTalents(list: string[]): string {
+  if (list.length <= 1) return list.join("");
+  return `${list.slice(0, -1).join(", ")} & ${list[list.length - 1]}`;
+}
+
 const nl: ArchiveVideo[] = [
-  ...talentenVideoIds.map((youtubeId, i) => ({
+  ...talentVideos.map((v, i) => ({
     id: `talenten-${i + 1}`,
-    youtubeId,
-    title: `De talenten uitgelegd — deel ${i + 1}`,
-    description:
-      "Dirk van der Schaaf bespreekt een set talenten uit het Jane® talentdiagram en laat zien hoe deze in de praktijk doorwerken.",
+    youtubeId: v.youtubeId,
+    title: `Deel ${i + 1} — ${joinTalents(v.talentsNl)}`,
+    description: `Dirk van der Schaaf legt deze talenten uit en laat zien hoe ze in de praktijk doorwerken: ${joinTalents(v.talentsNl)}.`,
     speaker: "Dirk van der Schaaf",
     group: TALENTEN_NL,
+    talents: v.talentsNl,
   })),
   {
     id: "dirk-1",
@@ -54,14 +66,14 @@ const nl: ArchiveVideo[] = [
 ];
 
 const en: ArchiveVideo[] = [
-  ...talentenVideoIds.map((youtubeId, i) => ({
+  ...talentVideos.map((v, i) => ({
     id: `talenten-${i + 1}`,
-    youtubeId,
-    title: `The talents explained — part ${i + 1}`,
-    description:
-      "Dirk van der Schaaf discusses a set of talents from the Jane® diagram and shows how they play out in practice. (In Dutch.)",
+    youtubeId: v.youtubeId,
+    title: `Part ${i + 1} — ${joinTalents(v.talentsEn)}`,
+    description: `Dirk van der Schaaf explains these talents and shows how they play out in practice: ${joinTalents(v.talentsEn)}. (In Dutch.)`,
     speaker: "Dirk van der Schaaf",
     group: TALENTEN_EN,
+    talents: v.talentsEn,
   })),
   {
     id: "dirk-1",
