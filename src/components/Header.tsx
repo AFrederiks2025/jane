@@ -17,6 +17,7 @@ export function Header({ locale }: HeaderProps) {
   const t = getContent(locale);
   const items: { key: RouteKey; label: string }[] = [
     { key: "methodology", label: t.common.nav.methodology },
+    { key: "audiences", label: t.common.nav.audiences },
     { key: "coaches", label: t.common.nav.coaches },
     { key: "experiences", label: t.common.nav.experiences },
     { key: "institute", label: t.common.nav.institute },

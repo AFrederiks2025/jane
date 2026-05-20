@@ -9,6 +9,7 @@ export const en: SiteContent = {
       about: "About",
       methodology: "Talent methodology",
       coaches: "Coaches",
+      audiences: "Audiences",
       experiences: "Experiences",
       institute: "Jane institute",
       books: "Books",

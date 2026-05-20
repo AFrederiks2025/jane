@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# internal source material (public repo — keep drafts local only)
+/docs/**/*.pdf
+/docs/**/*.docx
+/docs/bronmateriaal/
+/.claude/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

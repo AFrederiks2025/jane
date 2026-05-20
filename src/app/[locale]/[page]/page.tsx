@@ -5,6 +5,7 @@ import { getContent } from "@/content";
 import { AboutPage } from "@/views/AboutPage";
 import { MethodologyPage } from "@/views/MethodologyPage";
 import { CoachesPage } from "@/views/CoachesPage";
+import { AudiencesPage } from "@/views/AudiencesPage";
 import { ExperiencesPage } from "@/views/ExperiencesPage";
 import { InstitutePage } from "@/views/InstitutePage";
 import { BooksPage } from "@/views/BooksPage";
@@ -50,6 +51,14 @@ export async function generateMetadata({
             ? "Vind de Jane® gecertificeerde coach die bij jou past."
             : "Find the Jane® certified coach who fits you.",
       };
+    case "audiences":
+      return {
+        title: locale === "nl" ? "Doelgroepen" : "Audiences",
+        description:
+          locale === "nl"
+            ? "Voor wie is Jane®? Ontdek de doelgroep die bij jouw vraag past."
+            : "Who is Jane® for? Discover the audience that fits your question.",
+      };
     case "experiences":
       return { title: t.experiences.metaTitle, description: t.experiences.metaDescription };
     case "institute":
@@ -83,6 +92,8 @@ export default async function DynamicPage({
       return <MethodologyPage locale={locale} />;
     case "coaches":
       return <CoachesPage locale={locale} />;
+    case "audiences":
+      return <AudiencesPage locale={locale} />;
     case "experiences":
       return <ExperiencesPage locale={locale} />;
     case "institute":

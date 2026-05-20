@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales, routes } from "@/lib/i18n";
 import { getContent } from "@/content";
 import { getBooks } from "@/content/books";
+import { getAudiences } from "@/content/audiences";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jane.nl";
 
@@ -36,6 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${SITE}/${locale}/${routes[locale].books}/${book.slug}`,
         changeFrequency: "monthly",
         priority: 0.7,
+      });
+    }
+    for (const audience of getAudiences(locale)) {
+      entries.push({
+        url: `${SITE}/${locale}/${routes[locale].audiences}/${audience.slug}`,
+        changeFrequency: "monthly",
+        priority: 0.8,
       });
     }
   }

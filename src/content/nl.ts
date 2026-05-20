@@ -9,6 +9,7 @@ export const nl: SiteContent = {
       about: "Over ons",
       methodology: "Talenten methodiek",
       coaches: "Coaches",
+      audiences: "Doelgroepen",
       experiences: "Ervaringen",
       institute: "Jane instituut",
       books: "Boeken",

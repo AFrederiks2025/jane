@@ -6,7 +6,9 @@ import { PillButton } from "@/components/PillButton";
 import { CTABanner } from "@/components/CTABanner";
 import { CoachDetailPage } from "@/views/CoachDetailPage";
 import { BookDetailPage } from "@/views/BookDetailPage";
+import { AudienceDetailPage } from "@/views/AudienceDetailPage";
 import { getBooks } from "@/content/books";
+import { getAudiences } from "@/content/audiences";
 import { getContent } from "@/content";
 import { isLocale, locales, path, routes, type Locale } from "@/lib/i18n";
 
@@ -28,6 +30,10 @@ export function generateStaticParams() {
     const booksSlug = routes[locale].books;
     for (const book of getBooks(locale)) {
       params.push({ locale, page: booksSlug, slug: book.slug });
+    }
+    const audiencesSlug = routes[locale].audiences;
+    for (const audience of getAudiences(locale)) {
+      params.push({ locale, page: audiencesSlug, slug: audience.slug });
     }
   }
   return params;
@@ -59,6 +65,11 @@ export async function generateMetadata({
       openGraph: { images: [book.coverFront] },
     };
   }
+  if (page === routes[locale].audiences) {
+    const audience = getAudiences(locale).find((a) => a.slug === slug);
+    if (!audience) return {};
+    return { title: audience.name, description: audience.proposition };
+  }
   return {};
 }
 
@@ -76,6 +87,10 @@ export default async function NestedDetail({
 
   if (page === routes[locale].books) {
     return <BookDetailPage locale={locale} slug={slug} />;
+  }
+
+  if (page === routes[locale].audiences) {
+    return <AudienceDetailPage locale={locale} slug={slug} />;
   }
 
   if (page !== routes[locale].experiences) notFound();
