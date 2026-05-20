@@ -1,5 +1,6 @@
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
+import { TalentsExplorer } from "@/components/TalentsExplorer";
 import { getTalents } from "@/content/talents";
 import { path, type Locale } from "@/lib/i18n";
 
@@ -33,25 +34,7 @@ export function TalentsPage({ locale }: { locale: Locale }) {
 
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {talents.map((t) => (
-              <article
-                id={t.slug}
-                key={t.slug}
-                className="bg-white border border-jane-navy/10 rounded-3xl p-6 scroll-mt-24"
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="text-jane-mint/70 text-sm tabular-nums font-medium">
-                    {String(t.number).padStart(2, "0")}
-                  </span>
-                  <h2 className="text-xl text-jane-navy font-normal leading-snug">{t.name}</h2>
-                </div>
-                <p className="mt-3 text-jane-navy/75 text-[15px] font-light leading-relaxed">
-                  {t.description}
-                </p>
-              </article>
-            ))}
-          </div>
+          <TalentsExplorer talents={talents} locale={locale} />
         </div>
       </section>
 
