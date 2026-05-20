@@ -31,7 +31,7 @@ export function Header({ locale }: HeaderProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <Logo locale={locale} />
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
           {items.map((it) => (
             <Link
               key={it.key}
@@ -46,6 +46,12 @@ export function Header({ locale }: HeaderProps) {
             className="text-jane-navy text-[15px] font-light hover:text-jane-orange transition-colors"
           >
             {t.common.nav.contact}
+          </Link>
+          <Link
+            href={path(locale, "training")}
+            className="inline-flex items-center rounded-full bg-jane-mint text-white px-4 py-1.5 text-[14px] font-medium hover:bg-[#038f74] transition-colors"
+          >
+            {t.common.nav.training}
           </Link>
           <AccountMenu locale={locale} />
           <ThemeToggle locale={locale} />
@@ -100,6 +106,13 @@ export function Header({ locale }: HeaderProps) {
             className="block text-jane-navy text-base font-light py-1"
           >
             {t.common.nav.contact}
+          </Link>
+          <Link
+            href={path(locale, "training")}
+            onClick={() => setOpen(false)}
+            className="mt-2 inline-flex items-center rounded-full bg-jane-mint text-white px-5 py-2 text-sm font-medium"
+          >
+            {t.common.nav.training}
           </Link>
           <AccountMenu locale={locale} variant="mobile" onNavigate={() => setOpen(false)} />
           <Link
