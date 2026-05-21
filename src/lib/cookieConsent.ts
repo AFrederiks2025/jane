@@ -40,10 +40,10 @@ export function readConsent(): CookieConsent | null {
 export function writeConsent(consent: Omit<CookieConsent, "version" | "necessary" | "decidedAt">) {
   if (typeof window === "undefined") return;
   const full: CookieConsent = {
+    ...consent,
     version: CONSENT_VERSION,
     necessary: true,
     decidedAt: new Date().toISOString(),
-    ...consent,
   };
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(full));
