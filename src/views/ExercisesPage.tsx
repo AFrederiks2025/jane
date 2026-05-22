@@ -1,11 +1,13 @@
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
 import { ExercisesExplorer } from "@/components/ExercisesExplorer";
-import { exerciseGroups, exercises } from "@/content/exercises";
+import { getExerciseGroups, getExercises } from "@/content/exercises";
 import { path, type Locale } from "@/lib/i18n";
 
 export function ExercisesPage({ locale }: { locale: Locale }) {
   const isNL = locale === "nl";
+  const exerciseGroups = getExerciseGroups(locale);
+  const exercises = getExercises(locale);
   return (
     <>
       <section className="relative isolate overflow-hidden bg-jane-cream">
@@ -33,6 +35,19 @@ export function ExercisesPage({ locale }: { locale: Locale }) {
             <span className="rounded-full bg-white px-4 py-1.5">
               {isNL ? "4 werkvormen" : "4 formats"}
             </span>
+          </div>
+          <div className="mt-8">
+            <a
+              href="/downloads/jane-oefeningenboek.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full bg-jane-navy text-white px-6 py-3 text-sm font-medium hover:bg-[#1a234a] transition-colors"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4v11m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5 19h14" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              </svg>
+              {isNL ? "Download het hele oefeningenboek (PDF)" : "Download the full exercise book (PDF)"}
+            </a>
           </div>
         </div>
       </section>
