@@ -1,3 +1,5 @@
+import type { Locale } from "@/lib/i18n";
+
 export interface Exercise {
   slug: string;
   group: string;
@@ -17,7 +19,7 @@ export interface ExerciseGroup {
   subtitle: string;
 }
 
-export const exerciseGroups: ExerciseGroup[] = [
+const groupsNl: ExerciseGroup[] = [
   { id: "universeel", title: "Universele oefeningen", subtitle: "Een goede start voor vrijwel iedereen" },
   { id: "gemeenteleden", title: "Gemeenteleden", subtitle: "Geestelijke bestemming ontdekken" },
   { id: "voorgangers", title: "Voorgangers en kerkleiders", subtitle: "Leiden vanuit eigen kern" },
@@ -35,7 +37,25 @@ export const exerciseGroups: ExerciseGroup[] = [
   { id: "international", title: "International", subtitle: "JANE for English speakers" },
 ];
 
-export const exercises: Exercise[] = [
+const groupsEn: ExerciseGroup[] = [
+  { id: "universeel", title: "Universal exercises", subtitle: "A good start for almost anyone" },
+  { id: "gemeenteleden", title: "Church members", subtitle: "Discovering your spiritual purpose" },
+  { id: "voorgangers", title: "Pastors and church leaders", subtitle: "Leading from your own core" },
+  { id: "jongeren", title: "Young people and study choice", subtitle: "Choosing direction from who you are" },
+  { id: "loopbaan", title: "Career and reorientation", subtitle: "Work that does not drain you" },
+  { id: "managers", title: "Managers and executives", subtitle: "Leading from your core" },
+  { id: "sales", title: "Sales professionals", subtitle: "Selling from authenticity" },
+  { id: "teamleiders", title: "Team and project leaders", subtitle: "Untangling the role mix" },
+  { id: "echtparen", title: "Couples", subtitle: "Two profiles, one relationship" },
+  { id: "kleine-groepen", title: "Small groups and home groups", subtitle: "Making group dynamics conscious" },
+  { id: "teams", title: "Teams", subtitle: "Team Life Statement journey" },
+  { id: "oudstenteams", title: "Elder teams and church boards", subtitle: "Deciding on gifts" },
+  { id: "bedrijven", title: "Companies and SMEs", subtitle: "HR from talent" },
+  { id: "gemeentes", title: "Local churches", subtitle: "Profile and vision forming" },
+  { id: "international", title: "International", subtitle: "JANE for English speakers" },
+];
+
+const exercisesNl: Exercise[] = [
   {
     slug: "drie-talenten-in-de-spiegel",
     group: "universeel",
@@ -81,7 +101,7 @@ export const exercises: Exercise[] = [
     materials: "Lijst 27 talenten + lege werkbladen",
     steps: ["Sessie 1 — Wie ben ik niet: doorloop de 27 talenten en kruis 8-12 aan die níet bij jou horen. Beschrijf per uitgesloten talent een situatie waarin je het ontbreken voelde.", "Sessie 2 — Wie ben ik wel: kies uit de overgebleven 15-19 talenten je 5-8 sterksten. Beschrijf wat ze in combinatie maken.", "Sessie 3 — Wat houdt me tegen: kijk welk talent je het laagste scoort. Welk vervangend gedrag zet je daarvoor in? Hoe lang doe je dat al?", "Schrijf na elke sessie 1 alinea op over wat je hebt geleerd.", "Bewaar de drie werkbladen — ze vormen de basis voor een latere coaching met een gecertificeerde coach."],
     reflection: ["Welke stap was het moeilijkst, en waarom?", "Voelde je weerstand bij bepaalde inzichten? Bij welke?", "Wat zou je willen vragen aan een coach om dit verder uit te diepen?"],
-    coachTip: "Deze verkorte versie vervangt geen volledige coaching, maar geeft een serieus eerste beeld. Goed als startpunt of als zelf-onderzoek tussen sessies. Hoofdstuk 2 Per doelgroep 14 doelgroepen · 48 oefeningen totaal Voor wie zijn of haar geestelijke functie en gaven binnen de gemeente wil ontdekken. Deze oefeningen combineren de 27 Jane-talenten met de geestelijke gaven-laag (de 35 gaventeksten en de vijfvoudige bediening).",
+    coachTip: "Deze verkorte versie vervangt geen volledige coaching, maar geeft een serieus eerste beeld. Goed als startpunt of als zelf-onderzoek tussen sessies.",
   },
   {
     slug: "talent-gave-koppeling",
@@ -628,10 +648,65 @@ export const exercises: Exercise[] = [
     duration: "60 minutes",
     materials: "",
     steps: ["Identify your top 3 talents.", "For each talent: how is it perceived in your home culture? (e.g., direct vs indirect, individual vs collective)", "For each talent: how would it be perceived in another culture where you've worked or lived?", "Identify situations where your talent was misread by colleagues from another culture.", "Write one strategy for each talent: how to adjust expression without losing essence."],
-    reflection: ["Which talent has been most often misunderstood across cultures?", "Which talent gives you the most leverage in international settings?", "What is your next step? — Oefeningenboek samengesteld uit het JANE-bronmateriaal van Dirk van der Schaaf en Mariella's handboek, met praktische werkvormen voor coaches en deelnemers Jane® is een geregistreerd merk op het gebied van managementadvies, coaching en training."],
+    reflection: ["Which talent has been most often misunderstood across cultures?", "Which talent gives you the most leverage in international settings?", "What is your next step? —"],
   },
 ];
 
-export function getExercisesByGroup(groupId: string): Exercise[] {
-  return exercises.filter((e) => e.group === groupId);
+/** English overrides per slug; any field not present falls back to the Dutch base. */
+const exercisesEnOverrides: Record<string, Partial<Exercise>> = {
+  "drie-talenten-in-de-spiegel": {
+    name: "Three talents in the mirror",
+    goal: "Get a first indication of your three strongest talents through self-reflection",
+    form: "Individual",
+    duration: "20-30 minutes",
+    materials: "Pen + paper, list of the 27 talents with short descriptions",
+    steps: ["Take the list of 27 talents and read them one by one, calmly.", "For each talent ask yourself 'Do I recognise this in myself?' Mark it with +, 0 or −.", "Look only at your pluses. Cross out the ones you doubt until 5-8 remain.", "For each remaining talent, write down a concrete situation from the last six months in which it was visible.", "From the remaining talents, pick your top 3 — the ones with the most concrete examples."],
+    reflection: ["Which talents were a surprise — ones you had forgotten in yourself?", "Which talents did you miss in yourself — ones you had expected?", "What does your top 3 say about what gives you energy?"],
+    coachTip: "Clients tend to underestimate what they have (especially highly educated women) and overestimate what they lack. In the second round, ask for concrete situations — those make it solid.",
+  },
+  "drie-naasten-als-talent-spiegel": {
+    name: "Three close ones as a talent mirror",
+    goal: "External validation of your suspected talents through people who know you well",
+    form: "Individual + three short conversations",
+    duration: "A week, in spare moments",
+    materials: "List of the 27 talents to share",
+    steps: ["Choose three people who know you well, from different contexts (e.g. partner, colleague, childhood friend).", "Ask each: 'Which 5 talents from this list do you most strongly recognise in me?'", "Give them the list and 24 hours. Send it by app or email.", "Collect the answers in a table — which talents are named more than once?", "Compare with your own top 3 from the mirror exercise: where does it overlap, where does it differ?"],
+    reflection: ["Which talents were named by all three? Those are probably your strongest.", "Which talents did you not recognise yourself but others did? Are you underrating something?", "Which talents did you think you had but nobody named?"],
+    coachTip: "It is most powerful when three people from different worlds name the same 2-3 talents. Those are then almost certainly truly present.",
+  },
+  "het-energie-dagboek": {
+    name: "The energy diary",
+    goal: "Map practically which activities give energy and which drain it",
+    form: "Individual",
+    duration: "A week, a few minutes a day",
+    materials: "A small notebook or notes app",
+    steps: ["For one week, note each workday: which activity you did, and the energy level you ended on (1-10).", "Mark each activity with + (gave energy), 0 (neutral) or − (cost energy).", "At the end of the week: which activities consistently got a + and which a −?", "For each + activity: which 1-2 talents were in it? (Use the 27-talents list.)", "For each − activity: which talent is probably missing in you, making it cost so much energy?"],
+    reflection: ["Does your + talent overlap match your top 3 from earlier exercises?", "Which − activities could you delegate to someone with that talent?", "What would happen if you spent 80% of your time on + activities?"],
+  },
+  "de-drie-stappen-zelfworkshop-verkort": {
+    name: "The three-step self-workshop (short)",
+    goal: "Work through a simplified version of the main journey — a first introduction",
+    form: "Individual",
+    duration: "Three 45-minute sessions, one per week",
+    materials: "List of 27 talents + blank worksheets",
+    steps: ["Session 1 — Who I am not: go through the 27 talents and tick 8-12 that do not fit you. For each excluded talent, describe a situation where you felt its absence.", "Session 2 — Who I am: from the remaining 15-19 talents, choose your 5-8 strongest. Describe what they create in combination.", "Session 3 — What holds me back: look at the talent you score lowest. What substitute behaviour do you use for it? How long have you done so?", "After each session, write one paragraph about what you learned.", "Keep the three worksheets — they form the basis for later coaching with a certified coach."],
+    reflection: ["Which step was the hardest, and why?", "Did you feel resistance to certain insights? Which ones?", "What would you want to ask a coach to explore this further?"],
+    coachTip: "This short version does not replace full coaching, but gives a serious first picture. Good as a starting point or as self-inquiry between sessions.",
+  },
+};
+
+export const exerciseGroups = groupsNl;
+export const exercises = exercisesNl;
+
+export function getExerciseGroups(locale: Locale): ExerciseGroup[] {
+  return locale === "nl" ? groupsNl : groupsEn;
+}
+
+export function getExercises(locale: Locale): Exercise[] {
+  if (locale === "nl") return exercisesNl;
+  return exercisesNl.map((e) => ({ ...e, ...exercisesEnOverrides[e.slug] }));
+}
+
+export function getExercisesByGroup(locale: Locale, groupId: string): Exercise[] {
+  return getExercises(locale).filter((e) => e.group === groupId);
 }

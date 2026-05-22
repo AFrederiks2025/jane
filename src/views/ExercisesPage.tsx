@@ -1,11 +1,13 @@
 import { Blob } from "@/components/Blob";
 import { PillButton } from "@/components/PillButton";
 import { ExercisesExplorer } from "@/components/ExercisesExplorer";
-import { exerciseGroups, exercises } from "@/content/exercises";
+import { getExerciseGroups, getExercises } from "@/content/exercises";
 import { path, type Locale } from "@/lib/i18n";
 
 export function ExercisesPage({ locale }: { locale: Locale }) {
   const isNL = locale === "nl";
+  const exerciseGroups = getExerciseGroups(locale);
+  const exercises = getExercises(locale);
   return (
     <>
       <section className="relative isolate overflow-hidden bg-jane-cream">
