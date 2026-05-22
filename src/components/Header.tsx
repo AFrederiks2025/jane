@@ -22,6 +22,7 @@ export function Header({ locale }: HeaderProps) {
     { key: "experiences", label: t.common.nav.experiences },
     { key: "institute", label: t.common.nav.institute },
     { key: "books", label: t.common.nav.books },
+    { key: "exercises", label: t.common.nav.exercises },
     { key: "about", label: t.common.nav.about },
   ];
   const otherLocale: Locale = locale === "nl" ? "en" : "nl";

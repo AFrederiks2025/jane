@@ -14,6 +14,7 @@ export const nl: SiteContent = {
       institute: "Instituut",
       training: "Opleiding",
       books: "Boeken",
+      exercises: "Oefeningen",
       contact: "Contact",
     },
     account: {

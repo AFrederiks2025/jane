@@ -11,6 +11,7 @@ import { ExperiencesPage } from "@/views/ExperiencesPage";
 import { InstitutePage } from "@/views/InstitutePage";
 import { OpleidingPage } from "@/views/OpleidingPage";
 import { BooksPage } from "@/views/BooksPage";
+import { ExercisesPage } from "@/views/ExercisesPage";
 import { getOpleiding } from "@/content/opleiding";
 
 function resolveRoute(locale: Locale, slug: string): RouteKey | null {
@@ -86,6 +87,14 @@ export async function generateMetadata({
             ? "De Jane® methodiek in boekvorm — voor wie zelf aan de slag wil."
             : "The Jane® methodology in book form — for those who want to do the work themselves.",
       };
+    case "exercises":
+      return {
+        title: locale === "nl" ? "Oefeningen per doelgroep" : "Exercises per audience",
+        description:
+          locale === "nl"
+            ? "52 concrete oefeningen om de Jane®-methodiek in praktijk te brengen, geordend per doelgroep."
+            : "52 concrete exercises to put the Jane® methodology into practice, organised by audience.",
+      };
     default:
       return {};
   }
@@ -119,6 +128,8 @@ export default async function DynamicPage({
       return <OpleidingPage locale={locale} />;
     case "books":
       return <BooksPage locale={locale} />;
+    case "exercises":
+      return <ExercisesPage locale={locale} />;
     default:
       notFound();
   }
