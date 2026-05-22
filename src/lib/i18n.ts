@@ -19,6 +19,7 @@ export const routes = {
     institute: "jane-instituut",
     training: "opleiding",
     books: "boeken",
+    exercises: "oefeningen",
     contact: "#contact",
   },
   en: {
@@ -32,6 +33,7 @@ export const routes = {
     institute: "jane-institute",
     training: "training",
     books: "books",
+    exercises: "exercises",
     contact: "#contact",
   },
 } as const;
